@@ -1,0 +1,108 @@
+body {
+  text-align: center;
+  margin: 0;
+  background-color: #EEEEEE;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1{
+  color:#1C658C;
+  font-size: 3rem;
+}
+/*Index*//*Index*//*Index*//*Index*//*Index*/
+/* Top*/
+.top-container{
+  background-color: #EEEEEE;
+}
+
+.table_of_content {
+  margin: auto;
+  font-size: 32px;
+  width: 80%;
+}
+
+/* Middle*/
+.middle-container {
+  background-color: #D8D2CB;
+  line-height: 30px;
+  padding: 5% 5% 10%;
+}
+
+.welcome{
+  margin: auto;
+}
+
+.hands-img {
+  width: 90%;
+}
+
+/* Bottom*/
+
+.bottom-container{
+  width: 100%;
+  padding: 20px;
+}
+
+.search-job{
+  border-radius:15px;
+  background-color: #D8D2CB;
+  height: 140px;
+  width: 160px;
+  padding-top: 20px;
+  margin-right: 20px;
+}
+
+.job-vector{
+  width: 40%;
+}
+
+.search-house{
+  border-radius:15px;
+  background-color: #D8D2CB;
+  height: 140px;
+  width: 160px;
+  padding-top: 20px;
+}
+
+.house-vector{
+  width: 39%;
+}
+
+/*Work*//*Work*//*Work*//*Work*//*Work*//*Work*/
+.work-table-row{
+   background-color: #D8D2CB;
+   padding: 10px;
+   line-height: 50px;
+   border-radius:5px;
+}
+
+/*Housing*//*Housing*//*Housing*//*Housing*//*Housing*/
+.house-table-row{
+   background-color: #D8D2CB;
+   padding: 10px;
+   border: 3px solid;
+}
+
+.house-price-textbox{
+  height: 50%;
+  width: 50%;
+}
+
+/* Buttons*//* Buttons*//* Buttons*//* Buttons*//* Buttons*//* Buttons*/
+a:link {
+  color: #1C658C;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #1C658C;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+  background-color: transparent;
+  text-decoration: underline;
+}

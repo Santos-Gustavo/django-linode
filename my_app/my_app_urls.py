@@ -1,0 +1,10 @@
+from django.urls import path
+from . import views
+
+app_name = 'my_app'
+
+urlpatterns = [
+    path('', views.index_view, name='index'),
+    path('work/', views.work_view, name='work'),
+    path('work/form/', views.work_form_view, name='work_form'),
+]
