@@ -76,6 +76,12 @@ h1{
    border-radius:5px;
 }
 
+.work-job{
+  background-color: #D8D2CB;
+  padding: 20px;
+  border: 20px;
+}
+
 /*Housing*//*Housing*//*Housing*//*Housing*//*Housing*/
 .house-table-row{
    background-color: #D8D2CB;

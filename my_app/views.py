@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http.response import HttpResponseRedirect
 from .forms import WorkForm
 from . import models
 
@@ -18,6 +19,7 @@ def work_form_view(request):
         form = WorkForm(request.POST)
         if form.is_valid():
             form.save()
+            return HttpResponseRedirect('../')
     else:
         form = WorkForm()
     return render(request, 'my_app/work/work_form.html', context={'form': form})
