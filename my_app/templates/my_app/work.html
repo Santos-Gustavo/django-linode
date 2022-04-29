@@ -27,12 +27,12 @@
 
 
   <div class="row">
-    <div class="col-6 col-sm-3"><span class="work-table-row">Comercial</span></div>
-    <div class="col-6 col-sm-3"><span class="work-table-row">Construção</span></div>
-    <div class="col-6 col-sm-3"><span class="work-table-row">Limpeza</span></div>
-    <div class="col-6 col-sm-3"><span class="work-table-row">HoReCa</span></div>
-    <div class="col-6 col-sm-3"><span class="work-table-row">Saúde/Beleza</span></div>
-    <div class="col-6 col-sm-3"><span class="work-table-row">Outros</span></div>
+    <div class="col-6 col-sm-3"><div class="work-table-row">Comercial</div></div>
+    <div class="col-6 col-sm-3"><div class="work-table-row">Construção</div></div>
+    <div class="col-6 col-sm-3"><div class="work-table-row">Limpeza</div></div>
+    <div class="col-6 col-sm-3"><div class="work-table-row">HoReCa</div></div>
+    <div class="col-6 col-sm-3"><div class="work-table-row">Saúde/Beleza</div></div>
+    <div class="col-6 col-sm-3"><div class="work-table-row">Outros</div></div>
   </div>
   <br><br>
 
@@ -48,7 +48,11 @@
 
   <ul>
     {% for job in jobs %}
-        <div class="work-job">{{ job.profession }}</div>
+{#        Colocar quando foi publicado#}
+{#        Salario#}
+        <div class="row">
+            <div class="col-11 col-sm-12"><div class="work-job">{{ job.profession }}</div></div>
+        </div>
         <br><br>
     {% endfor %}
   </ul>

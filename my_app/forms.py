@@ -7,6 +7,10 @@ class WorkForm(ModelForm):
     class Meta:
         model = WorkModel
         fields = '__all__'
+        # exclude = 'date'
+        # widget = {
+        #     'name': forms.Textarea(attrs={'class': 'myform', 'placeholder': 'Entre teu nome'})
+        # }
 
         # ############################# CHOICES ############################# #
         # PROFESSION_CHOICES = (
@@ -38,12 +42,10 @@ class WorkForm(ModelForm):
             ('Masticage', 'Masticage'),
             ('Ajudante', 'Ajudante')
         )
-        FREELANCER_CHOICES = (('Sim', 'Sim'), ('Nao', 'Não'))
         LANGUAGE_CHOICES = (('Frances', 'Frances'), ('Ingles', 'Ingles'), ('Neerlandes', 'Neerlandes'))
 
         widgets = {
             'profession': forms.Select(choices=PROFESSION_CHOICES, attrs={'class': 'form-control'}),
-            'freelancer': forms.Select(choices=FREELANCER_CHOICES, attrs={'class': 'form-control'}),
             'language': forms.Select(choices=LANGUAGE_CHOICES, attrs={'class': 'form-control'})
         }
 
