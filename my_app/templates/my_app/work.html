@@ -46,19 +46,20 @@
   <h2><b>Anuncios</b></h2>
   <br><br>
 
-  <ul>
+
     {% for job in jobs %}
-{#        Colocar quando foi publicado#}
-{#        Salario#}
         <div class="row">
-            <div class="col-11 col-sm-12"><div class="work-job">
-                <h3><b>{{ job.profession }}</b></h3>
-                {{ job.date }}
+            <div class="col-12 col-sm-12">
+                <div class="work-job">
+                    <h4><b>{{ job.profession }}</b></h4>
+                    Postado em {{ job.date }}
+                    <div class="work-job-salary">€{{ job.salary }} a hora</div>
+                    {{ job.name }} {{ job.contact }}
             </div></div>
         </div>
         <br><br>
     {% endfor %}
-  </ul>
+
 </body>
 
 </html>

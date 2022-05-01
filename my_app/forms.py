@@ -1,32 +1,18 @@
 from django import forms
 from .models import WorkModel
 from django.forms import ModelForm
+from phonenumber_field.formfields import PhoneNumberField
+from phonenumber_field.widgets import PhoneNumberPrefixWidget
 
 
 class WorkForm(ModelForm):
+    phone_number = PhoneNumberField(
+        widget=PhoneNumberPrefixWidget(initial='BE')
+                                    )
+
     class Meta:
         model = WorkModel
         fields = '__all__'
-        # exclude = 'date'
-        # widget = {
-        #     'name': forms.Textarea(attrs={'class': 'myform', 'placeholder': 'Entre teu nome'})
-        # }
-
-        # ############################# CHOICES ############################# #
-        # PROFESSION_CHOICES = (
-        # (1, 'Carreleur/Ladrilhador Azulejador'),
-        # (2, 'Charpentier/Carpinteiro'),
-        # (3, 'Coffreur/Cofragem'),
-        # (4, 'Couvreur/Carpinteiro(telhado)'),
-        # (5, 'Ferrailleur/Armador de Ferro'),
-        # (6, 'Chauffage/Aquecimento'),
-        # (7, 'Maçon/Pedreiro'),
-        # (8, 'Plombier/Encanador'),
-        # (9, 'Peintre/Pintor'),
-        # (10, 'Plafonneur'),
-        # (11, 'Masticage'),
-        # (12, 'Ajudante')
-        # )
 
         PROFESSION_CHOICES = (
             ('Carreleur/Ladrilhador Azulejador', 'Carreleur/Ladrilhador Azulejador'),

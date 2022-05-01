@@ -1,11 +1,12 @@
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class WorkModel(models.Model):
     # blank=True -> Field is not compulsory
     name = models.CharField(max_length=30)
     profession = models.CharField(max_length=50)
-    contact = models.IntegerField()
+    contact = PhoneNumberField()
     salary = models.IntegerField(blank=True)
     language_french = models.BooleanField(blank=True)
     language_english = models.BooleanField(blank=True)
