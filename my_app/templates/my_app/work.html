@@ -51,7 +51,10 @@
 {#        Colocar quando foi publicado#}
 {#        Salario#}
         <div class="row">
-            <div class="col-11 col-sm-12"><div class="work-job">{{ job.profession }}</div></div>
+            <div class="col-11 col-sm-12"><div class="work-job">
+                <h3><b>{{ job.profession }}</b></h3>
+                {{ job.date }}
+            </div></div>
         </div>
         <br><br>
     {% endfor %}
