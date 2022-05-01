@@ -1,14 +1,9 @@
 from django import forms
 from .models import WorkModel
 from django.forms import ModelForm
-from phonenumber_field.formfields import PhoneNumberField
-from phonenumber_field.widgets import PhoneNumberPrefixWidget
 
 
 class WorkForm(ModelForm):
-    phone_number = PhoneNumberField(
-        widget=PhoneNumberPrefixWidget(initial='BE')
-                                    )
 
     class Meta:
         model = WorkModel
@@ -33,6 +28,10 @@ class WorkForm(ModelForm):
         widgets = {
             'profession': forms.Select(choices=PROFESSION_CHOICES, attrs={'class': 'form-control'}),
             'language': forms.Select(choices=LANGUAGE_CHOICES, attrs={'class': 'form-control'})
+        }
+
+        error_messages = {
+            
         }
 
 

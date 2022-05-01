@@ -19,7 +19,7 @@ def work_form_view(request):
         form = WorkForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('../')
+            return HttpResponseRedirect('../')  # ToDo: Create successfull page
     else:
         form = WorkForm()
     return render(request, 'my_app/work/work_form.html', context={'form': form})

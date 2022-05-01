@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'my_app.apps.MyAppConfig',
-    'phonenumber_field'
 ]
 
 MIDDLEWARE = [
@@ -111,7 +110,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = True  # ToDo: Change timezone DATE_INPUT_FORMATS = ['%d-%m-%Y']
 
 USE_TZ = True
 
