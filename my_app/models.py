@@ -16,7 +16,6 @@ class WorkModel(models.Model):
 
     def __str__(self):
         return (
-            f"{self.name}, procurando {self.profession}, "
-            f"Tem  que falar, "
-            f"{self.description}"
-                )
+            f"Em {self.date} {self.name} {self.contact}, procura por um {self.profession}, pagando "
+            f"€{self.salary} a hora"
+        )

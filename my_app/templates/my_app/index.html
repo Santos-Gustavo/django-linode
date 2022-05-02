@@ -23,6 +23,7 @@
       <p>Ajudando brasileiros que moram na Belgica</p>
       <br>
     </div>
+{% block logo %}
 
 <!-- This is how it's to appear in mobile -->
     <div class="row">
@@ -48,6 +49,7 @@
       </div>
     </div>
     <br>
+    </div>
 
 <!-- This is how it's to appear in PC -->
 <!--
@@ -73,7 +75,6 @@
     </div>
 -->
 
-
   <div class="middle-container">
     <div class="welcome">
       <img class= "hands-img" src="{% static 'images/hands.png' %}">
@@ -92,7 +93,7 @@
       <tr>
         <th>
           <div class="search-job">
-            <a href="{% static 'html/work.html' %}">
+            <a href="{% url 'my_app:work-page' %}">
               <img class="job-vector" src="{% static 'images/job-vector.png' %}">
               <h6>Procurar um emprego</h6>
             </a>
@@ -109,6 +110,6 @@
       </tr>
     </table>
   </div>
+{% endblock %}
 </body>
-
 </html>
