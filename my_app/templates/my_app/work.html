@@ -3,8 +3,8 @@
 
 {% block logo %}
   <div class="row">
-    <div class="col-6 col-sm-3"><div class="work-table-row">Comercial</div></div>
-    <div class="col-6 col-sm-3"><div class="work-table-row">Construção</div></div>
+    <a href="{% url 'my_app:work-construction' %}"><div class="col-6 col-sm-3"><div class="work-table-row">Construção</div></div></a>
+    <div class="col-6 col-sm-3"><div class="work-table-row">Comércio</div></div>
     <div class="col-6 col-sm-3"><div class="work-table-row">Limpeza</div></div>
     <div class="col-6 col-sm-3"><div class="work-table-row">HoReCa</div></div>
     <div class="col-6 col-sm-3"><div class="work-table-row">Saúde/Beleza</div></div>
@@ -12,12 +12,10 @@
   </div>
   <br><br>
 
-  <h2><a href="{% url 'my_app:work-form-page' %}">Crie uma vaga aqui</a></h2>
-  <br><br>
-
-  <h2><b>Destaques</b></h2>
-  <br><br><br><br>
-
+{##}
+{#  <h2><b>Destaques</b></h2>#}
+{#  <br><br><br><br>#}
+{##}
 
   <h2><b>Anuncios</b></h2>
   <br><br>

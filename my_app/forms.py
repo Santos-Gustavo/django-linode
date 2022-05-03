@@ -3,8 +3,7 @@ from .models import WorkModel
 from django.forms import ModelForm
 
 
-class WorkForm(ModelForm):
-
+class Work(ModelForm):
     class Meta:
         model = WorkModel
         fields = '__all__'
@@ -30,17 +29,17 @@ class WorkForm(ModelForm):
             'language': forms.Select(choices=LANGUAGE_CHOICES, attrs={'class': 'form-control'})
         }
 
-        error_messages = {
-            
+        # error_messages = {
+        # }
+
+
+class WorkFormCleaning(ModelForm):
+    class Meta:
+        model = WorkModel
+        fields = '__all__'
+
+        LANGUAGE_CHOICES = (('Frances', 'Frances'), ('Ingles', 'Ingles'), ('Neerlandes', 'Neerlandes'))
+
+        widgets = {
+            'language': forms.Select(choices=LANGUAGE_CHOICES, attrs={'class': 'form-control'})
         }
-
-
-
-
-
-
-
-
-
-
-
