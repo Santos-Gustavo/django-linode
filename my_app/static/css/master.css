@@ -2,18 +2,23 @@ body {
   text-align: center;
   padding: 10px;
   margin: 0;
-  background-color: #EEEEEE;
+  background-color: #F9F7F7;
   font-family: 'Montserrat', sans-serif;
 }
 
-h1{
-  color:#1C658C;
+h1 {
+  color: #3F72AF;
   font-size: 3rem;
 }
-/*Index*//*Index*//*Index*//*Index*//*Index*/
+
+/*Index*/
+/*Index*/
+/*Index*/
+/*Index*/
+/*Index*/
 /* Top*/
-.top-container{
-  background-color: #EEEEEE;
+.top-container {
+  background-color: #F9F7F7;
 }
 
 .table_of_content {
@@ -24,12 +29,12 @@ h1{
 
 /* Middle*/
 .middle-container {
-  background-color: #D8D2CB;
+  background-color: #DBE2EF;
   line-height: 30px;
   padding: 5% 5% 10%;
 }
 
-.welcome{
+.welcome {
   margin: auto;
 }
 
@@ -39,64 +44,78 @@ h1{
 
 /* Bottom*/
 
-.bottom-container{
+.bottom-container {
   width: 100%;
   padding: 20px;
 }
 
-.search-job{
-  border-radius:15px;
-  background-color: #D8D2CB;
+.search-job {
+  border-radius: 15px;
+  background-color: #DBE2EF;
   height: 140px;
   width: 160px;
   padding-top: 20px;
   margin-right: 20px;
 }
 
-.job-vector{
+.job-vector {
   width: 40%;
 }
 
-.search-house{
-  border-radius:15px;
+.search-house {
+  border-radius: 15px;
   background-color: #D8D2CB;
   height: 140px;
   width: 160px;
   padding-top: 20px;
 }
 
-.house-vector{
+.house-vector {
   width: 39%;
 }
 
-/*Work*//*Work*//*Work*//*Work*//*Work*//*Work*/
-.work-table-row{
-   background-color: #D8D2CB;
-   padding: 10px;
-   line-height: 50px;
-   border-radius:5px;
-}
-
-.work-job{
+/*Work*/
+/*Work*/
+/*Work*/
+/*Work*/
+/*Work*/
+/*Work*/
+.work-table-row {
   background-color: #D8D2CB;
   padding: 10px;
-  border-radius:5px;
+  line-height: 50px;
+  border-radius: 5px;
+}
+
+.work-job {
+  background-color: #D8D2CB;
+  padding: 10px;
+  border-radius: 5px;
   text-align: left;
 }
 
-/*Housing*//*Housing*//*Housing*//*Housing*//*Housing*/
-.house-table-row{
-   background-color: #D8D2CB;
-   padding: 10px;
-   border: 3px solid;
+/*Housing*/
+/*Housing*/
+/*Housing*/
+/*Housing*/
+/*Housing*/
+.house-table-row {
+  background-color: #D8D2CB;
+  padding: 10px;
+  border: 3px solid;
 }
 
-.house-price-textbox{
+.house-price-textbox {
   height: 50%;
   width: 50%;
 }
 
-/* Buttons*//* Buttons*//* Buttons*//* Buttons*//* Buttons*//* Buttons*/
+/* Buttons*/
+/* Buttons*/
+/* Buttons*/
+/* Buttons*/
+/* Buttons*/
+/* Buttons*/
 a:link {
   color: #1C658C;
   background-color: transparent;
