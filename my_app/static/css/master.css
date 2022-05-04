@@ -11,6 +11,11 @@ h1 {
   font-size: 3rem;
 }
 
+p {
+  color: #112D4E;
+}
+
+
 /*Index*/
 /*Index*/
 /*Index*/
@@ -64,7 +69,7 @@ h1 {
 
 .search-house {
   border-radius: 15px;
-  background-color: #D8D2CB;
+  background-color: #DBE2EF;
   height: 140px;
   width: 160px;
   padding-top: 20px;
@@ -117,13 +122,13 @@ h1 {
 /* Buttons*/
 /* Buttons*/
 a:link {
-  color: #1C658C;
+  color: #112D4E;
   background-color: transparent;
   text-decoration: none;
 }
 
 a:visited {
-  color: #1C658C;
+  color: #112D4E;
   background-color: transparent;
   text-decoration: none;
 }
