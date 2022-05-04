@@ -19,14 +19,18 @@ class WorkView(TemplateView):
 
 
 class WorkCreateView(CreateView):
-    model = WorkModel
-    fields = '__all__'
+    # model = WorkModel
+    template_name = 'my_app/work_form.html'
+    form_class = Work
     success_url = reverse_lazy('my_app:success')
+
+    def form_valid(self, form):
+        return super().form_valid(form)
 
 
 # class WorkFormView(FormView):
 #     form_class = Work
-#     template_name = 'my_app/workmodel_form.html'
+#     template_name = 'my_app/work_form.html'
 #
 #     success_url = reverse_lazy('my_app:success')
 #
@@ -39,7 +43,7 @@ class WorkCreateView(CreateView):
 #         #         return HttpResponseRedirect(reverse('my_app:success-page'))
 #         # else:
 #         #     form = form_model
-#         # return render(request, 'my_app/workmodel_form.html', context={'form': form})
+#         # return render(request, 'my_app/work_form.html', context={'form': form})
 
 
 class Construction(TemplateView):

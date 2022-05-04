@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class WorkModel(models.Model):
@@ -21,6 +22,9 @@ class WorkModel(models.Model):
             f"€{self.salary} a hora"
         )
 
+    @staticmethod
+    def get_absolute_url():
+        return reverse('my_app:workmodel_form')
 
 # class FormView(models.Model):
 #     def form_view(request, form_model, type_job_value):
@@ -32,4 +36,4 @@ class WorkModel(models.Model):
 #                 return HttpResponseRedirect(reverse('my_app:success-page'))
 #         else:
 #             form = form_model
-#         return render(request, 'my_app/workmodel_form.html', context={'form': form})
+#         return render(request, 'my_app/work_form.html', context={'form': form})
