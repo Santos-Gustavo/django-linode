@@ -25,19 +25,19 @@ SECRET_KEY = 'django-insecure-wtu8(bbv0)h2u#cfzvgguq7qs^mpa)$f2il2+i9&il!(v+#b*8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['109.74.192.118']
+ALLOWED_HOSTS = ['109.74.192.118', '127.0.0.1', 'clube-imigrante.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'my_app.apps.MyAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'my_app.apps.MyAppConfig',
 ]
 
 MIDDLEWARE = [
@@ -110,7 +110,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = True  # ToDo: Change timezone DATE_INPUT_FORMATS = ['%d-%m-%Y']
 
 USE_TZ = True
 
