@@ -22,9 +22,9 @@ class WorkModel(models.Model):
             f"€{self.salary} a hora"
         )
 
-    @staticmethod
-    def get_absolute_url():
-        return reverse('my_app:workmodel_form')
+    # @staticmethod
+    # def get_absolute_url():
+    #     return reverse('my_app:workmodel_form')
 
 # class FormView(models.Model):
 #     def form_view(request, form_model, type_job_value):

@@ -3,7 +3,7 @@ from .models import WorkModel
 from django.forms import ModelForm
 
 
-class Work(ModelForm):
+class WorkConstructionForm(ModelForm):
     class Meta:
         model = WorkModel
         fields = '__all__'
@@ -23,23 +23,27 @@ class Work(ModelForm):
             ('Ajudante', 'Ajudante')
         )
         LANGUAGE_CHOICES = (('Frances', 'Frances'), ('Ingles', 'Ingles'), ('Neerlandes', 'Neerlandes'))
+        TYPEJOB_CHOICES = ((1, 'Construção'),)
 
         widgets = {
             'profession': forms.Select(choices=PROFESSION_CHOICES, attrs={'class': 'form-control'}),
-            'language': forms.Select(choices=LANGUAGE_CHOICES, attrs={'class': 'form-control'})
+            'language': forms.Select(choices=LANGUAGE_CHOICES, attrs={'class': 'form-control'}),
+            'type_job': forms.Select(choices=TYPEJOB_CHOICES, attrs={'class': 'form-control'})
         }
 
         # error_messages = {
         # }
 
 
-class WorkFormCleaning(ModelForm):
+class WorkCleaningForm(ModelForm):
     class Meta:
         model = WorkModel
         fields = '__all__'
 
         LANGUAGE_CHOICES = (('Frances', 'Frances'), ('Ingles', 'Ingles'), ('Neerlandes', 'Neerlandes'))
+        TYPEJOB_CHOICES = ((2, 'Limpeza'),)
 
         widgets = {
-            'language': forms.Select(choices=LANGUAGE_CHOICES, attrs={'class': 'form-control'})
+            'language': forms.Select(choices=LANGUAGE_CHOICES, attrs={'class': 'form-control'}),
+            'type_job': forms.Select(choices=TYPEJOB_CHOICES, attrs={'class': 'form-control'})
         }
