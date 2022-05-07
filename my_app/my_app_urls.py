@@ -9,6 +9,6 @@ urlpatterns = [
     path('work/', WorkView.as_view(), name='work-page'),
     path('work/construction/', WorkConstructionView.as_view(), name='work-construction-page'),
     path('work/cleaning/', WorkCleaningView.as_view(), name='work-cleaning-page'),
-    path('work/construction/form/', WorkCleaningCreateView.as_view(), name='work-cleaning-form-page'),
-    path('work/cleaning/form/', WorkConstructionCreateView.as_view(), name='work-construction-form-page'),
+    path('work/construction/form/', WorkConstructionCreateView.as_view(), name='work-construction-form-page'),
+    path('work/cleaning/form/', WorkCleaningCreateView.as_view(), name='work-cleaning-form-page'),
 ]

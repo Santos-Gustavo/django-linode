@@ -21,19 +21,3 @@ class WorkModel(models.Model):
             f"{self.type_job} Em {self.date} {self.name} {self.contact}, procura por um {self.profession}, pagando "
             f"€{self.salary} a hora"
         )
-
-    # @staticmethod
-    # def get_absolute_url():
-    #     return reverse('my_app:workmodel_form')
-
-# class FormView(models.Model):
-#     def form_view(request, form_model, type_job_value):
-#         if request.method == 'POST':
-#             form = form_model(request.POST)
-#             if form.is_valid():
-#                 form.type_job = type_job_value
-#                 form.save()
-#                 return HttpResponseRedirect(reverse('my_app:success-page'))
-#         else:
-#             form = form_model
-#         return render(request, 'my_app/work_form.html', context={'form': form})

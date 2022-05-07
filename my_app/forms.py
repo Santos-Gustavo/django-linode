@@ -2,6 +2,11 @@ from django import forms
 from .models import WorkModel
 from django.forms import ModelForm
 
+# ToDo: Set values in _CHOICES to int, it will improve for DataBase, eg: "
+#  (1, 'Plafonneur'),
+#  (2, 'Masticage'),
+#  (3, 'Ajudante')"
+
 
 class WorkConstructionForm(ModelForm):
     class Meta:
@@ -40,10 +45,16 @@ class WorkCleaningForm(ModelForm):
         model = WorkModel
         fields = '__all__'
 
+        PROFESSION_CHOICES = (
+            ('Nettoyage de bureau/Limpeza de escritório', 'Nettoyage de bureau/Limpeza de escritório'),
+            ('Nettoyage de maison/Limpeza residencial', 'Nettoyage de maison/Limpeza residencial'),
+            ('Nettoyage chantier/Limpeza pós-obra', 'Nettoyage chantier/Limpeza pós-obra'),
+        )
         LANGUAGE_CHOICES = (('Frances', 'Frances'), ('Ingles', 'Ingles'), ('Neerlandes', 'Neerlandes'))
         TYPEJOB_CHOICES = ((2, 'Limpeza'),)
 
         widgets = {
+            'profession': forms.Select(choices=PROFESSION_CHOICES, attrs={'class': 'form-control'}),
             'language': forms.Select(choices=LANGUAGE_CHOICES, attrs={'class': 'form-control'}),
             'type_job': forms.Select(choices=TYPEJOB_CHOICES, attrs={'class': 'form-control'})
         }
