@@ -36,8 +36,11 @@ class WorkConstructionForm(ModelForm):
             'type_job': forms.Select(choices=TYPEJOB_CHOICES, attrs={'class': 'form-control'})
         }
 
-        # error_messages = {
-        # }
+        error_messages = {
+            'salary': {
+                'max_value': 'Valor máximo por hora é de €99.99'
+            }
+        }
 
 
 class WorkCleaningForm(ModelForm):
@@ -57,4 +60,28 @@ class WorkCleaningForm(ModelForm):
             'profession': forms.Select(choices=PROFESSION_CHOICES, attrs={'class': 'form-control'}),
             'language': forms.Select(choices=LANGUAGE_CHOICES, attrs={'class': 'form-control'}),
             'type_job': forms.Select(choices=TYPEJOB_CHOICES, attrs={'class': 'form-control'})
+        }
+        error_messages = {
+            'salary': {
+                'max_value': 'Valor máximo por hora é de €99.99'
+            }
+        }
+
+
+class WorkOtherForm(ModelForm):
+    class Meta:
+        model = WorkModel
+        fields = '__all__'
+
+        LANGUAGE_CHOICES = (('Frances', 'Frances'), ('Ingles', 'Ingles'), ('Neerlandes', 'Neerlandes'))
+        TYPEJOB_CHOICES = ((3, 'Outro'),)
+
+        widgets = {
+            'language': forms.Select(choices=LANGUAGE_CHOICES, attrs={'class': 'form-control'}),
+            'type_job': forms.Select(choices=TYPEJOB_CHOICES, attrs={'class': 'form-control'})
+        }
+        error_messages = {
+            'salary': {
+                'max_value': 'Valor máximo por hora é de €99.99'
+            }
         }
