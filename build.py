@@ -3,10 +3,10 @@
 #
 # authors = Author('Gustavo Santos', 'gus.gabriel@hotmail.com')
 #
-# description = "Sistema completo da rede de imigrantes brasileiros na Belgica!"
+# description = "Rede de imigrantes brasileiros na Belgica!"
 # name = 'DjangoApp'  # Falta de criatividade é foda
 # license = 'GNU GPL v3'
-# version = '0.0.2'
+# version = '0.0.3'
 #
 # default_task = ['clean', 'analyze', 'publish']
 #

@@ -18,6 +18,6 @@ class WorkModel(models.Model):
 
     def __str__(self):
         return (
-            f"Tipo {self.type_job}, em {self.date} {self.name} {self.contact}, procura por um {self.profession}, pagando "
-            f"€{self.salary} a hora"
+            f"Tipo {self.type_job}, em {self.date} {self.name} {self.contact}, procura por um {self.profession}, "
+            f"pagando €{self.salary} a hora"
         )
