@@ -22,8 +22,13 @@
   <div class="top-container">
 
     <div class="logo">
-      <a href="{% url 'my_app:index-page' %}"><h1><b>Clube Imigrante</b></h1></a>
+      <a href="{% url 'my_app:index-page' %}"><h1><b>Clube Imigrante</b></h1></a>  # ToDo: finish it
       <p>Ajudando brasileiros que moram na Belgica</p>
+        {% if user.is_authenticated %}
+            <p>Seja bem vindo: {{ user.get_username }}</p>
+            <a href="{% url 'logout' %}?next={{ request.path }}">Desconecte-se</a>
+        {% endif %}
+
       <br>
     </div>
     {% block logo %}

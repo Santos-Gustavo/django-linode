@@ -1,5 +1,6 @@
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import WorkModel
 from .forms import *
 
@@ -44,21 +45,21 @@ class WorkOtherView(TemplateView):
         return context
 
 
-class WorkConstructionCreateView(CreateView):
+class WorkConstructionCreateView(LoginRequiredMixin, CreateView):
     model = WorkModel
     template_name = 'my_app/work_form.html'
     form_class = WorkConstructionForm
     success_url = reverse_lazy('my_app:success-page')
 
 
-class WorkCleaningCreateView(CreateView):
+class WorkCleaningCreateView(LoginRequiredMixin, CreateView):
     model = WorkModel
     template_name = 'my_app/work_form.html'
     form_class = WorkCleaningForm
     success_url = reverse_lazy('my_app:success-page')
 
 
-class WorkOtherCreateView(CreateView):
+class WorkOtherCreateView(LoginRequiredMixin, CreateView):
     model = WorkModel
     template_name = 'my_app/work_form.html'
     form_class = WorkOtherForm
