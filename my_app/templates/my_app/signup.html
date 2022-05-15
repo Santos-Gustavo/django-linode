@@ -1,0 +1,19 @@
+{% extends 'my_app/index.html' %}
+{% block logo %}
+
+<form method="POST">
+    {% csrf_token %}
+    Usuario
+    {{ form.username }}
+    <br>
+    Senha
+    {{ form.password1 }}
+    <br>
+    Confirmar Senha
+    {{ form.password2 }}
+    {{ form.errors }}
+    <br>
+    <button type="submit" value="signup">Sign up</button>
+</form>
+
+{% endblock %}

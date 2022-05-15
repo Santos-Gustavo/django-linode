@@ -1,11 +1,13 @@
 from django.urls import path
 from .views import *
+# from django.views.generic import RedirectView
 
 app_name = 'my_app'
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index-page'),
     path('success/', SuccessView.as_view(), name='success-page'),
+    path('signup/', SignUpView.as_view(), name='signup-page'),
     path('work/', WorkView.as_view(), name='work-page'),
     path('work/construction/', WorkConstructionView.as_view(), name='work-construction-page'),
     path('work/cleaning/', WorkCleaningView.as_view(), name='work-cleaning-page'),
@@ -13,4 +15,5 @@ urlpatterns = [
     path('work/construction/form/', WorkConstructionCreateView.as_view(), name='work-construction-form-page'),
     path('work/cleaning/form/', WorkCleaningCreateView.as_view(), name='work-cleaning-form-page'),
     path('work/other/form/', WorkOtherCreateView.as_view(), name='work-other-form-page'),
+    # path('', RedirectView.as_view(url=''))
 ]

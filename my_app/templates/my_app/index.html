@@ -20,13 +20,17 @@
     crossorigin="anonymous"></script>
 
   <div class="top-container">
-
     <div class="logo">
       <a href="{% url 'my_app:index-page' %}"><h1><b>Clube Imigrante</b></h1></a>
       <p>Ajudando brasileiros que moram na Belgica</p>
       <br>
     </div>
+
     {% block logo %}
+    {% if user.is_authenticated %}
+        <p>Seja bem vindo: {{ user.get_username }}</p>
+        <a href="{% url 'logout' %}?next={{ request.path }}">Desconecte-se</a>
+    {% endif %}
 
     <!-- This is how it's to appear in mobile -->
     <div class="row">
