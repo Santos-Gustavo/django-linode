@@ -7,6 +7,7 @@ app_name = 'my_app'
 urlpatterns = [
     path('', IndexView.as_view(), name='index-page'),
     path('success/', SuccessView.as_view(), name='success-page'),
+    path('signup/', SignUpView.as_view(), name='signup-page'),
     path('work/', WorkView.as_view(), name='work-page'),
     path('work/construction/', WorkConstructionView.as_view(), name='work-construction-page'),
     path('work/cleaning/', WorkCleaningView.as_view(), name='work-cleaning-page'),

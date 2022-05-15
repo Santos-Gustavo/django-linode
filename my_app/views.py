@@ -1,6 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.forms import UserCreationForm
 from .models import WorkModel
 from .forms import *
 
@@ -11,6 +12,12 @@ class IndexView(TemplateView):
 
 class SuccessView(TemplateView):
     template_name = 'my_app/success.html'
+
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('my_app:success-page')
+    template_name = 'my_app/signup.html'
 
 
 class WorkView(TemplateView):
