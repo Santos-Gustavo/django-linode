@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<title>Opa</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link type="text/css" rel="stylesheet" href="{% static 'css/404.css' %}">
+</head>
+<body>
+<h1><a href="{% url 'my_app:index-page' %}">404</a></h1>
+<p>Essa página em especifico não existe</p>
+<div class="travolta"></div>
+</body>
+</html>

@@ -10,6 +10,10 @@ class IndexView(TemplateView):
     template_name = 'my_app/index.html'
 
 
+class Error404View(TemplateView):
+    template_name = 'my_app/404.html'
+
+
 class SuccessView(TemplateView):
     template_name = 'my_app/success.html'
 
@@ -18,6 +22,10 @@ class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('my_app:success-page')
     template_name = 'my_app/signup.html'
+
+
+class HouseView(TemplateView):
+    template_name = 'my_app/house.html'
 
 
 class WorkView(TemplateView):
