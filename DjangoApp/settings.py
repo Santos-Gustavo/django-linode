@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['109.74.192.118', '127.0.0.1', '.clube-imigrante.com']
 
@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'csp.middleware.CSPMiddleware'
 ]
 
 ROOT_URLCONF = 'DjangoApp.urls'
@@ -122,7 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = "/var/www/DjangoApp/clube-imigrante/my_app/static"
+STATIC_ROOT = "/var/www/DjangoApp/my_app/static"
 STATICFILES_DIRS = [BASE_DIR / "my_app/static"]
 
 # Default primary key field type
@@ -131,3 +132,12 @@ STATICFILES_DIRS = [BASE_DIR / "my_app/static"]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
+
+SECURE_HSTS_SECONDS = 2_592_000  # 30 days
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
+
+CSP_STYLE_SRC = ["'self'", "cdn.jsdelivr.net"]
