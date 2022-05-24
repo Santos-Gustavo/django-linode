@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = ['109.74.192.118', '127.0.0.1', '.clube-imigrante.com']
+ALLOWED_HOSTS = ['139.162.250.216', '127.0.0.1', '.clube-imigrante.com']
 
 
 # Application definition
@@ -124,7 +124,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = "/var/www/DjangoApp/my_app/static"
-STATICFILES_DIRS = [BASE_DIR / "my_app/static"]
+# STATICFILES_DIRS = [BASE_DIR / "my_app/static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
