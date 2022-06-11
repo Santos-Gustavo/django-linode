@@ -31,13 +31,38 @@ class HouseView(TemplateView):
 ####################################################################################################
 # Service
 ####################################################################################################
-class ServiceView(TemplateView):
-    template_name = 'my_app/service/service.html'
+class ServiceTemplateView(TemplateView):
+    def __init__(self, service_type):
+        self.template_name = 'my_app/service/service.html'
+        self.service_type = service_type
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['services'] = ServiceModel.objects.all()
+        if self.service_type == 0:
+            context['services'] = ServiceModel.objects.all()
+        else:
+            context['services'] = ServiceModel.objects.filter(type_service=self.service_type)
         return context
+
+
+class ServiceView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=0)
+    
+    
+class ServiceDomesticView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=1)
+
+
+class ServiceHealthyBeautyView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=2)
+
+
+class ServiceTransportView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=3)
 
 
 class ServiceFormView(LoginRequiredMixin, CreateView):
@@ -45,33 +70,6 @@ class ServiceFormView(LoginRequiredMixin, CreateView):
     template_name = 'my_app/service/service_form.html'
     form_class = ServiceForm
     success_url = reverse_lazy('my_app:success-page')
-
-
-class ServiceDomesticView(TemplateView):
-    template_name = 'my_app/service/service.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['services'] = ServiceModel.objects.filter(type_service=1)
-        return context
-
-
-class ServiceHealthyBeautyView(TemplateView):
-    template_name = 'my_app/service/service.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['services'] = ServiceModel.objects.filter(type_service=2)
-        return context
-
-
-class ServiceTransportView(TemplateView):
-    template_name = 'my_app/service/service.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['services'] = ServiceModel.objects.filter(type_service=3)
-        return context
 ####################################################################################################
 
 
@@ -79,55 +77,55 @@ class ServiceTransportView(TemplateView):
 # Work
 ####################################################################################################
 class WorkView(TemplateView):
-    template_name = 'my_app/work.html'
+    template_name = 'my_app/work/work.html'
     context_object_name = 'jobs'
 
 
-class WorkConstructionView(TemplateView):
-    # ToDo: select only what you need in DB
-    template_name = 'my_app/work/construction.html'
+class WorkTemplateView(TemplateView):
+    def __init__(self, work_type):
+        self.template_name = 'my_app/work/work_template.html'
+        self.work_type = work_type
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['jobs'] = WorkModel.objects.filter(type_job=1)
+        context['jobs'] = WorkModel.objects.filter(type_job=self.work_type)
         return context
 
 
-class WorkCleaningView(TemplateView):
-    template_name = 'my_app/work/cleaning.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['jobs'] = WorkModel.objects.filter(type_job=2)
-        return context
+class WorkConstructionView(WorkTemplateView):
+    def __init__(self):
+        super().__init__(work_type=1)
 
 
-class WorkOtherView(TemplateView):
-    template_name = 'my_app/work/outros.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['jobs'] = WorkModel.objects.filter(type_job=3)
-        return context
+class WorkCleaningView(WorkTemplateView):
+    def __init__(self):
+        super().__init__(work_type=2)
 
 
-class WorkConstructionCreateView(LoginRequiredMixin, CreateView):
-    model = WorkModel
-    template_name = 'my_app/work_form.html'
-    form_class = WorkConstructionForm
-    success_url = reverse_lazy('my_app:success-page')
+class WorkOtherView(WorkTemplateView):
+    def __init__(self):
+        super().__init__(work_type=3)
+
+
+class WorkFormTemplate(LoginRequiredMixin, CreateView):
+    def __init__(self, form_class):
+        self.model = WorkModel
+        self.template_name = 'my_app/work/work_form.html'
+        self.form_class = form_class
+        self.success_url = reverse_lazy('my_app:success-page')
+
+
+class WorkConstructionCreateView(WorkFormTemplate):
+    def __init__(self):
+        super().__init__(form_class=WorkConstructionForm)
 
 
 class WorkCleaningCreateView(LoginRequiredMixin, CreateView):
-    model = WorkModel
-    template_name = 'my_app/work_form.html'
-    form_class = WorkCleaningForm
-    success_url = reverse_lazy('my_app:success-page')
+    def __init__(self):
+        super().__init__(form_class=WorkCleaningForm)
 
 
 class WorkOtherCreateView(LoginRequiredMixin, CreateView):
-    model = WorkModel
-    template_name = 'my_app/work_form.html'
-    form_class = WorkOtherForm
-    success_url = reverse_lazy('my_app:success-page')
+    def __init__(self):
+        super().__init__(form_class=WorkOtherForm)
 ####################################################################################################

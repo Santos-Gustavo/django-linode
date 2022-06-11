@@ -42,17 +42,17 @@
 
 
 {% for job in jobs %}
-<div class="row">
-  <div class="col-12 col-sm-12">
-    <div class="work-job">
-      <h4><b>{{ job.profession }}</b></h4>
-      Postado em {{ job.date }}
-      <div class="work-job-salary">€{{ job.salary|floatformat:2 }} a hora</div>
-      {{ job.name }} {{ job.contact }}
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            <div class="work-job">
+                <h4><b>{{ job.profession }}</b></h4>
+                Postado em {{ job.date }}
+                <div class="work-job-salary">€{{ job.salary|floatformat:2 }} a hora</div>
+                {{ job.name }} {{ job.contact }}
+                {{ job.description }}
+        </div></div>
     </div>
-  </div>
-</div>
-<br><br>
+    <br><br>
 {% endfor %}
 
 {% endblock %}
