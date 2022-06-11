@@ -1,0 +1,63 @@
+{% extends 'my_app/index.html' %}
+{% load static %}
+
+{% block logo %}
+<h2><a href="{% url 'my_app:service-form-page' %}">Crie uma publicação aqui</a></h2>
+  <body>
+    <h1>Serviços</h1>
+    <hr>
+{#    <table style="width: 100%">#}
+{#      <tr>#}
+{#        <th>Doméstico</th>#}
+{#        <th>Saúde e Beleza</th>#}
+{#        <th>Transporte</th>#}
+{#        <th>Comida</th>#}
+{#        <th>Aulas</th>#}
+{#        <th>Viagens</th>#}
+{#        <th>Técnico</th>#}
+{#        <th>Outros</th>#}
+{#      </tr>#}
+{#    </table>#}
+
+<div class="row">
+  <a href="{% url 'my_app:service-domestic-page' %}">
+    <div class="col-6 col-sm-3">
+      <div class="work-table-row">Doméstico</div>
+    </div>
+  </a>
+
+  <a href="{% url 'my_app:service-healthy-beauty-page' %}">
+    <div class="col-6 col-sm-3">
+      <div class="work-table-row">Saúde e Beleza</div>
+    </div>
+  </a>
+
+  <a href="{% url 'my_app:service-transport-page' %}">
+    <div class="col-6 col-sm-3">
+      <div class="work-table-row">Transporte</div>
+    </div>
+  </a>
+</div>
+<br><br>
+{% block service-logo %}
+
+<h2 class="work_h2"><b>Anuncios</b></h2>
+<br><br>
+
+
+{% for service in services %}
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            <div class="work-job">
+                <h4><b>{{ service.name }}</b></h4>
+                Preço €{{ job.price }}<br>
+                {{ service.contact }}<br>
+                {{ service.description }}
+        </div></div>
+    </div>
+    <br><br>
+{% endfor %}
+
+  </body>
+{% endblock %}
+{% endblock %}
