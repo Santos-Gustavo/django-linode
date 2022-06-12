@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = ['139.162.250.216', '127.0.0.1', '.clube-imigrante.com']
+ALLOWED_HOSTS = ['139.162.216.36', '127.0.0.1', '.clube-imigrante']
 
 
 # Application definition
@@ -123,8 +123,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = "/var/www/DjangoApp/my_app/static"
-# STATICFILES_DIRS = [BASE_DIR / "my_app/static"]
+STATIC_ROOT = '/var/www/clube-imigrante/static'
+STATICFILES_DIRS = [BASE_DIR / "my_app/static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

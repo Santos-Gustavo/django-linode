@@ -22,7 +22,9 @@
 
 <div class="top-container">
     <div class="logo">
-        <a href="{% url 'my_app:index-page' %}"><h1><b>Clube Imigrante</b></h1></a>
+        <a href="{% url 'my_app:index-page' %}">
+            <img class="logo-website-img" src="{% static 'images/Clube_Imigrante_logo.png' %}">
+        </a>
         <p>Ajudando brasileiros que moram na Belgica</p>
         <br>
     </div>
@@ -47,7 +49,7 @@
                 </div>
             </div>
 
-            <div class="row justify-content-center">
+            <div hidden class="row justify-content-center">
                 <div class="col-1">
                     <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
                         <path fill="#112D4E"
@@ -67,12 +69,12 @@
                     </svg>
                 </div>
                 <div class="col-5">
-                    <a href="{% static 'html/services.html' %}">Serviços</a>
+                    <a href="{% url 'my_app:service-page' %}">Serviços</a>
                 </div>
             </div>
 
 
-            <div class="row justify-content-center">
+            <div hidden class="row justify-content-center">
                 <div class="col-1">
                     <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
                         <path fill="#112D4E"
@@ -158,7 +160,7 @@
                         </div>
                     </th>
                     <th>
-                        <div class="search-house">
+                        <div hidden class="search-house">
                             <a href="{% url 'my_app:house-page' %}">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
                                     <path fill="#112D4E"

@@ -9,8 +9,10 @@ certifi==2018.8.24
 # cloud-init==20.2
 # ConfigArgParse==0.13.0
 # configobj==5.0.6
+coverage==6.4
 # cryptography==2.6.1
 Django==3.2.13
+django-csp==3.7
 django-extensions==3.1.5
 # entrypoints==0.3
 # future==0.16.0
