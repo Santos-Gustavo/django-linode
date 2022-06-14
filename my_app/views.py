@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy
 from django.shortcuts import render
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from .models import WorkModel, ServiceModel
@@ -32,18 +32,18 @@ class HouseView(TemplateView):
 ####################################################################################################
 # Service
 ####################################################################################################
-class ServiceTemplateView(TemplateView):
+class ServiceTemplateView(ListView):
     def __init__(self, service_type):
         self.template_name = 'my_app/service/service.html'
         self.service_type = service_type
+        self.model = ServiceModel
+        self.context_object_name = 'services'
+        self.paginate_by = 10
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
         if self.service_type == 0:
-            context['services'] = ServiceModel.objects.all()
+            self.queryset = ServiceModel.objects.all()
         else:
-            context['services'] = ServiceModel.objects.filter(type_service=self.service_type)
-        return context
+            self.queryset = ServiceModel.objects.filter(type_service=self.service_type)
 
 
 class ServiceView(ServiceTemplateView):
@@ -102,18 +102,18 @@ class ServiceFormView(LoginRequiredMixin, CreateView):
 ####################################################################################################
 # Work
 ####################################################################################################
-class WorkTemplateView(TemplateView):
+class WorkTemplateView(ListView):
     def __init__(self, work_type, template_name):
         self.template_name = template_name
         self.work_type = work_type
+        self.model = WorkModel
+        self.context_object_name = 'jobs'
+        self.paginate_by = 10
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
         if self.work_type == 0:
-            context['jobs'] = WorkModel.objects.all()
+            self.queryset = WorkModel.objects.all()
         else:
-            context['jobs'] = WorkModel.objects.filter(type_job=self.work_type)
-        return context
+            self.queryset = WorkModel.objects.filter(type_job=self.work_type)
 
 
 class WorkView(WorkTemplateView):

@@ -10,7 +10,7 @@ class WorkModel(models.Model):
     name = models.CharField(max_length=30)
     profession = models.CharField(max_length=50)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$')
-    contact = models.CharField(validators=[phone_regex], max_length=17, blank=True)
+    contact = models.CharField(validators=[phone_regex], max_length=17)
     salary = models.FloatField(validators=[MaxValueValidator(99.99)], blank=True)
     language_french = models.BooleanField(blank=True)
     language_english = models.BooleanField(blank=True)
@@ -34,7 +34,7 @@ class ServiceModel(models.Model):
     type_service = models.IntegerField()  # 1:Domestic, 2:Healthy and Beauty, 3:Transport
     title = models.CharField(max_length=70)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$')
-    contact = models.CharField(validators=[phone_regex], max_length=17, blank=True)
+    contact = models.CharField(validators=[phone_regex], max_length=17)
     price = models.FloatField(blank=True)
     image = models.ImageField(upload_to='service/%Y/%m/%d/', blank=True)
     description = models.TextField(max_length=1000, blank=True)
