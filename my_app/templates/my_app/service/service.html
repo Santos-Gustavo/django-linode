@@ -2,22 +2,27 @@
 {% load static %}
 
 {% block logo %}
-    <h2><a href="{% url 'my_app:service-form-page' %}">Crie uma publicação aqui</a></h2>
-    <body>
+<h2>
+    <a href="{% url 'my_app:service-form-page' %}">
+        <div class="top_btn">Crie uma publicação aqui </div>
+    </a>
+</h2>
+
+<body>
     <h1>Serviços</h1>
     <hr>
-    {#    <table style="width: 100%">#}
-    {#      <tr>#}
-    {#        <th>Doméstico</th>#}
-    {#        <th>Saúde e Beleza</th>#}
-    {#        <th>Transporte</th>#}
-    {#        <th>Comida</th>#}
-    {#        <th>Aulas</th>#}
-    {#        <th>Viagens</th>#}
-    {#        <th>Técnico</th>#}
-    {#        <th>Outros</th>#}
-    {#      </tr>#}
-    {#    </table>#}
+    {# <table style="width: 100%">#}
+        {# <tr>#}
+            {# <th>Doméstico</th>#}
+            {# <th>Saúde e Beleza</th>#}
+            {# <th>Transporte</th>#}
+            {# <th>Comida</th>#}
+            {# <th>Aulas</th>#}
+            {# <th>Viagens</th>#}
+            {# <th>Técnico</th>#}
+            {# <th>Outros</th>#}
+            {# </tr>#}
+        {# </table>#}
 
     <div class="row">
         <a href="{% url 'my_app:service-domestic-page' %}">
@@ -71,45 +76,46 @@
         </div>
     </a>
     </div>
+    <br><br>
 
     <h2 class="work_h2"><b>Anuncios</b></h2>
     <br><br>
 
 
     {% for service in services %}
-        <div class="row">
-            <div class="col-12 col-sm-12">
-                <div class="work-job">
-                    <h4><b>
+    <div class="row">
+        <div class="col-12 col-sm-12">
+            <div class="work-job">
+                <h4><b>
                         {% if service.image %}
-                            <img src="{{ service.image.url }}" width="200">
+                        <img src="{{ service.image.url }}" width="200">
                         {% endif %}
                         {{ service.title }}</b></h4>
-                    Preço €{{ job.price }}<br>
-                    {{ service.contact }}<br>
-                    {{ service.description }}
-                </div>
+                Preço €{{ job.price }}<br>
+                {{ service.contact }}<br>
+                {{ service.description }}
             </div>
         </div>
-        <br><br>
+    </div>
+    <br><br>
     {% endfor %}
     <div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
+        <span class="step-links">
+            {% if page_obj.has_previous %}
             <a href="?page=1">&laquo; first</a>
             <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
+            {% endif %}
 
-        <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
 
-        {% if page_obj.has_next %}
+            {% if page_obj.has_next %}
             <a href="?page={{ page_obj.next_page_number }}">next</a>
             <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
+            {% endif %}
+        </span>
     </div>
 
-    </body>
+</body>
 {% endblock %}

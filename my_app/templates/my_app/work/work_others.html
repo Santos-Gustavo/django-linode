@@ -2,6 +2,10 @@
 {% load static %}
 
 {% block work %}
-<h2><a href="{% url 'my_app:work-other-form-page' %}">Crie uma vaga aqui</a></h2>
+<h2>
+    <a href="{% url 'my_app:work-other-form-page' %}">
+        <div class="top_btn">Crie uma vaga aqui</div>
+    </a>
+</h2>
 <br><br>
 {% endblock %}

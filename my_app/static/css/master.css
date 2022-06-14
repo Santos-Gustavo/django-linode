@@ -21,7 +21,7 @@ h1 {
 /*Index*/
 /* Top*/
 .logo-website-img {
-  width: 75%;
+  width: 300px;
   padding-bottom: 2px;
 }
 
@@ -248,6 +248,21 @@ a:hover {
   border: 2px;
   border-style: solid;
   cursor: pointer;
+  box-shadow: 0px 3px 7px #666666;
+}
+
+
+/*Services*/
+.top_btn {
+  background-color: #DBE2EF;
+  color: #112D4E;
+  font-weight: bold;
+  padding: 10px;
+  line-height: 50px;
+  border-radius: 5px;
+  border-color: #112D4E;
+  border-style: solid;
+  border-width: 2px;
   box-shadow: 0px 3px 7px #666666;
 }
 
