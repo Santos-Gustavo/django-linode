@@ -3,10 +3,10 @@
 {% block logo %}
 <div class="form-container">
     <h2><b>Crie tua publicação</b></h2><br>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <h5>Nome</h5>
-        {{ form.name }}<br><br>
+        {{ form.title }}<br><br>
 
         <h5>Tipo de Serviço</h5>
         {{ form.type_service }}<br><br>
@@ -19,6 +19,7 @@
 
         <h5>Descrição</h5>
         {{ form.description }}<br><br>
+        {{ form.image }}<br><br>
 
         <button type="submit" name="submit" class="crie_vaga">Criar publicação</button>
     </form>

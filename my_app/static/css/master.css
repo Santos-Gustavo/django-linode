@@ -11,6 +11,9 @@ h1 {
   font-size: 3rem;
 }
 
+
+
+
 /*Index*/
 /*Index*/
 /*Index*/
@@ -29,7 +32,6 @@ h1 {
 .top-container {
   background-color: "E5E5E5";
   height: 50 px;
-
 }
 
 .table_of_content {
@@ -83,7 +85,7 @@ h1 {
 }
 
 
-.search-house {
+.search-service {
   border-radius: 15px;
   background-color: #DBE2EF;
   height: 140px;

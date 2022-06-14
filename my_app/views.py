@@ -1,4 +1,5 @@
 from django.urls import reverse_lazy
+from django.shortcuts import render
 from django.views.generic import TemplateView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
@@ -10,8 +11,8 @@ class IndexView(TemplateView):
     template_name = 'my_app/index.html'
 
 
-class Error404View(TemplateView):
-    template_name = 'my_app/404.html'
+def handle_not_found(request, exception=None):
+    return render(request, 'my_app/404.html')
 
 
 class SuccessView(TemplateView):
@@ -65,6 +66,31 @@ class ServiceTransportView(ServiceTemplateView):
         super().__init__(service_type=3)
 
 
+class ServiceFoodView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=4)
+
+
+class ServiceClassView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=5)
+
+
+class ServiceTravelView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=6)
+
+
+class ServiceTechnicView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=7)
+
+
+class ServiceOtherView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=20)
+
+
 class ServiceFormView(LoginRequiredMixin, CreateView):
     model = ServiceModel
     template_name = 'my_app/service/service_form.html'
@@ -76,41 +102,44 @@ class ServiceFormView(LoginRequiredMixin, CreateView):
 ####################################################################################################
 # Work
 ####################################################################################################
-class WorkView(TemplateView):
-    template_name = 'my_app/work/work.html'
-    context_object_name = 'jobs'
-
-
 class WorkTemplateView(TemplateView):
-    def __init__(self, work_type):
-        self.template_name = 'my_app/work/work_template.html'
+    def __init__(self, work_type, template_name):
+        self.template_name = template_name
         self.work_type = work_type
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['jobs'] = WorkModel.objects.filter(type_job=self.work_type)
+        if self.work_type == 0:
+            context['jobs'] = WorkModel.objects.all()
+        else:
+            context['jobs'] = WorkModel.objects.filter(type_job=self.work_type)
         return context
+
+
+class WorkView(WorkTemplateView):
+    def __init__(self):
+        super().__init__(work_type=0, template_name='my_app/work/work.html')
 
 
 class WorkConstructionView(WorkTemplateView):
     def __init__(self):
-        super().__init__(work_type=1)
+        super().__init__(work_type=1, template_name='my_app/work/work_construction.html')
 
 
 class WorkCleaningView(WorkTemplateView):
     def __init__(self):
-        super().__init__(work_type=2)
+        super().__init__(work_type=2, template_name='my_app/work/work_cleaning.html')
 
 
 class WorkOtherView(WorkTemplateView):
     def __init__(self):
-        super().__init__(work_type=3)
+        super().__init__(work_type=3, template_name='my_app/work/work_others.html')
 
 
 class WorkFormTemplate(LoginRequiredMixin, CreateView):
     def __init__(self, form_class):
+        # For some reason specify template_name here doesn't work, must investigate
         self.model = WorkModel
-        self.template_name = 'my_app/work/work_form.html'
         self.form_class = form_class
         self.success_url = reverse_lazy('my_app:success-page')
 
@@ -118,14 +147,17 @@ class WorkFormTemplate(LoginRequiredMixin, CreateView):
 class WorkConstructionCreateView(WorkFormTemplate):
     def __init__(self):
         super().__init__(form_class=WorkConstructionForm)
+        self.template_name = 'my_app/work/work_form.html'
 
 
 class WorkCleaningCreateView(LoginRequiredMixin, CreateView):
     def __init__(self):
         super().__init__(form_class=WorkCleaningForm)
+        self.template_name = 'my_app/work/work_form.html'
 
 
 class WorkOtherCreateView(LoginRequiredMixin, CreateView):
     def __init__(self):
         super().__init__(form_class=WorkOtherForm)
+        self.template_name = 'my_app/work/work_form.html'
 ####################################################################################################

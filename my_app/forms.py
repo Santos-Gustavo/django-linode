@@ -2,7 +2,9 @@ from django import forms
 from .models import WorkModel, ServiceModel
 from django.forms import ModelForm
 
-error_messages_work = {'salary': {'max_value': 'Valor máximo por hora é de €99.99'}}
+error_messages_work = {'salary': {'max_value': 'Valor máximo por hora é de €99.99'},
+                       'contact': {'phone_regex': 'O telefone deve ser no formato +32123456789 ou +351123456789'}}
+languages = (('Frances', 'Frances'), ('Ingles', 'Ingles'), ('Neerlandes', 'Neerlandes'))
 
 
 class WorkConstructionForm(ModelForm):
@@ -28,7 +30,7 @@ class WorkConstructionForm(ModelForm):
             ('Masticage', 'Masticage'),
             ('Ajudante', 'Ajudante')
         )
-        LANGUAGE_CHOICES = (('Frances', 'Frances'), ('Ingles', 'Ingles'), ('Neerlandes', 'Neerlandes'))
+        LANGUAGE_CHOICES = languages
         TYPEJOB_CHOICES = ((1, 'Construção'),)
 
         widgets = {
@@ -50,7 +52,7 @@ class WorkCleaningForm(ModelForm):
             ('Nettoyage de maison/Limpeza residencial', 'Nettoyage de maison/Limpeza residencial'),
             ('Nettoyage chantier/Limpeza pós-obra', 'Nettoyage chantier/Limpeza pós-obra'),
         )
-        LANGUAGE_CHOICES = (('Frances', 'Frances'), ('Ingles', 'Ingles'), ('Neerlandes', 'Neerlandes'))
+        LANGUAGE_CHOICES = languages
         TYPEJOB_CHOICES = ((2, 'Limpeza'),)
 
         widgets = {
@@ -66,7 +68,7 @@ class WorkOtherForm(ModelForm):
         model = WorkModel
         fields = '__all__'
 
-        LANGUAGE_CHOICES = (('Frances', 'Frances'), ('Ingles', 'Ingles'), ('Neerlandes', 'Neerlandes'))
+        LANGUAGE_CHOICES = languages
         TYPEJOB_CHOICES = ((3, 'Outro'),)
 
         widgets = {
@@ -80,8 +82,9 @@ class ServiceForm(ModelForm):
     class Meta:
         model = ServiceModel
         fields = '__all__'
-        TYPESERVICE_CHOICES = ((1, 'Doméstico'), (2, 'Saúde e Beleza'), (3, 'Transporte'), (4, 'Comida'), (5, 'Aulas'),
-                               (6, 'Viagens'), (7, 'Técnico'), (20, 'Outros'))
+        TYPESERVICE_CHOICES = ((1, 'Doméstico'), (2, 'Saúde e Beleza'), (3, 'Transporte'), (4, 'Comida'), (5, 'Aula'),
+                               (6, 'Viagem'), (7, 'Técnico'), (20, 'Outros'))
         widgets = {
             'type_service': forms.Select(choices=TYPESERVICE_CHOICES, attrs={'class': 'form-control'})
         }
+        error_messages = {'contact': {'phone_regex': 'O telefone deve ser no formato +32123456789 ou +351123456789'}}
