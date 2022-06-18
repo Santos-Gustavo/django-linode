@@ -37,21 +37,7 @@
                     <div class="work-table-row">Saúde e Beleza</div>
                 </a>
             </div>
-            <br>
-            <div class="menu_elmt">
-                <a href="{% url 'my_app:service-transport-page' %}">
-                    <div class="work-table-row">Transporte</div>
-                </a>
-            </div>
-            <br>
-            <div class="menu_elmt">
-                <th>
-                    <a href="{% url 'my_app:service-food-page' %}">
-                        <div class="work-table-row">Comida</div>
-                    </a>
-                </th>
-            </div>
-        </div>
+                    </div>
         <div class="col">
             <div class="menu_elmt">
                 <a href="{% url 'my_app:service-class-page' %}">
@@ -70,15 +56,27 @@
                     <div class="work-table-row">Técnico</div>
                 </a>
             </div>
+        </div>
+        <div class="col">
+            <div class="menu_elmt">
+                <th>
+                    <a href="{% url 'my_app:service-food-page' %}">
+                        <div class="work-table-row">Comida</div>
+                    </a>
+                </th>
+            </div>
+            <br>
+            <div class="menu_elmt">
+                <a href="{% url 'my_app:service-transport-page' %}">
+                    <div class="work-table-row">Transporte</div>
+                </a>
+            </div>
             <br>
             <div class="menu_elmt">
                 <a href="{% url 'my_app:service-other-page' %}">
                     <div class="work-table-row">Outros</div>
                 </a>
             </div>
-        </div>
-        <div class="col">
-
         </div>
     </div>
     <br><br>
@@ -88,26 +86,28 @@
 
 
     {% for service in services %}
-    <div class="row">
-        <div class="col-12 col-sm-12">
-            <div class="work-job">
-                <h4>
-                    <b>
-                        <div class="img_service">
-                            {% if service.image %}
-                            <img src="{{ service.image.url }}" width=250px height=250px>
-                            {% endif %}
-                        </div>
-                        <div>
-                            {{ service.title }}
-                        </div>
-                    </b>
-                </h4>
-                Preço €{{ service.price|floatformat:2 }}
-                <br>
-                {{ service.contact }}
-                <br>
-                {{ service.description }}
+    <div class="work-job">
+        <div class="row">
+                <div class="col">
+                    <h4>
+                        <b>
+                            <div class="img_service">
+                                {% if service.image %}
+                                <img src="{{ service.image.url }}" width=150px height=150px>
+                                {% endif %}
+                            </div>
+                        </b>
+                    </h4>
+                </div>
+                <div class="col">
+                    <b> {{ service.title }} </b>
+                    <br>
+                    Preço €{{ service.price|floatformat:2 }}
+                    <br>
+                    {{ service.contact }}
+                    <br>
+                    {{ service.description }}
+                </div>
             </div>
         </div>
     </div>
