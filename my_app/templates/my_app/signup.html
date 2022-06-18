@@ -9,8 +9,12 @@
     <br>
     Senha
     {{ form.password1 }}
-    <br>
-    <br>
+    <ul>
+        <li>Sua senha não pode ser muito parecida com suas outras informações pessoais.</li>
+        <li>Sua senha deve conter pelo menos 8 caracteres.</li>
+        <li>Sua senha não pode ser uma senha comumente usada.</li>
+        <li>Sua senha não pode ser totalmente numérica.</li>
+    </ul>
     Confirmar Senha
     {{ form.password2 }}
     {{ form.errors }}

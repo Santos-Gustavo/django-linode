@@ -26,12 +26,13 @@
                 <img class="logo-website-img" src="{% static 'images/Clube_Imigrante_logo.png' %}">
             </a>
         </div>
-
-        {% block logo %}
         {% if user.is_authenticated %}
         <p>Seja bem vindo: {{ user.get_username }}</p>
         <a href="{% url 'logout' %}?next={{ request.path }}">Desconecte-se</a>
+        {% else %}
+        <a href="{% url 'my_app:signup-page' %}"><b>Crie sua conta aqui</b></a>
         {% endif %}
+        {% block logo %}
 
         <!-- This is how it's to appear in mobile -->
         <div class="menu-container">

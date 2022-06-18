@@ -19,9 +19,13 @@ class SuccessView(TemplateView):
     template_name = 'my_app/success.html'
 
 
+class SuccessAccountView(TemplateView):
+    template_name = 'my_app/success_account.html'
+
+
 class SignUpView(CreateView):
     form_class = UserCreationForm
-    success_url = reverse_lazy('my_app:success-page')
+    success_url = reverse_lazy('my_app:success-account-page')
     template_name = 'my_app/signup.html'
 
 
