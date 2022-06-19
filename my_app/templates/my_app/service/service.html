@@ -37,25 +37,27 @@
                     <div class="work-table-row">Saúde e Beleza</div>
                 </a>
             </div>
-                    </div>
-        <div class="col">
-            <div class="menu_elmt">
-                <a href="{% url 'my_app:service-class-page' %}">
-                    <div class="work-table-row">Aula</div>
-                </a>
-            </div>
-            <br>
-            <div class="menu_elmt">
-                <a href="{% url 'my_app:service-travel-page' %}">
-                    <div class="work-table-row">Viagem</div>
-                </a>
-            </div>
             <br>
             <div class="menu_elmt">
                 <a href="{% url 'my_app:service-technic-page' %}">
                     <div class="work-table-row">Técnico</div>
                 </a>
             </div>
+                    </div>
+        <div hidden class="col">
+            <div class="menu_elmt">
+                <a href="{% url 'my_app:service-class-page' %}">
+                    <div class="work-table-row">Aula</div>
+                </a>
+            </div>
+            <br>
+            <div hidden class="menu_elmt">
+                <a href="{% url 'my_app:service-travel-page' %}">
+                    <div class="work-table-row">Viagem</div>
+                </a>
+            </div>
+            <br>
+
         </div>
         <div class="col">
             <div class="menu_elmt">

@@ -19,6 +19,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+    {% if user.is_authenticated %}
+        <p>Seja bem vindo: {{ user.get_username }}</p>
+        <button class="account_btn"><a href="{% url 'logout' %}?next={{ request.path }}">Desconecte-se</a> </button>
+        {% else %}
+        <button class="account_btn"><a href="{% url 'my_app:signup-page' %}"><b>Crie sua conta aqui</b></a></button>
+        <button class="account_btn"><a href="{% url 'my_app:login-page' %}"><b>Conecte-se</b></a></button>
+        {% endif %}
 
     <div class="top-container">
         <div class="logo">
@@ -26,12 +33,7 @@
                 <img class="logo-website-img" src="{% static 'images/Clube_Imigrante_logo.png' %}">
             </a>
         </div>
-        {% if user.is_authenticated %}
-        <p>Seja bem vindo: {{ user.get_username }}</p>
-        <a href="{% url 'logout' %}?next={{ request.path }}">Desconecte-se</a>
-        {% else %}
-        <a href="{% url 'my_app:signup-page' %}"><b>Crie sua conta aqui</b></a>
-        {% endif %}
+
         {% block logo %}
 
         <!-- This is how it's to appear in mobile -->

@@ -11,6 +11,10 @@ class IndexView(TemplateView):
     template_name = 'my_app/index.html'
 
 
+class LoginView(LoginRequiredMixin, TemplateView):
+    template_name = 'my_app/login.html'
+
+
 def handle_not_found(request, exception=None):
     return render(request, 'my_app/404.html')
 
