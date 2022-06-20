@@ -11,14 +11,23 @@ h1 {
   font-size: 3rem;
 }
 
+
+
+
 /*Index*/
 /*Index*/
 /*Index*/
 /*Index*/
 /*Index*/
 /* Top*/
+.account_btn{
+border-radius: 5px;
+background-color: #F9F7F7;
+border-color : #112D4E;
+}
+
 .logo-website-img {
-  width: 75%;
+  width: 300px;
   padding-bottom: 2px;
 }
 
@@ -29,7 +38,6 @@ h1 {
 .top-container {
   background-color: "E5E5E5";
   height: 50 px;
-
 }
 
 .table_of_content {
@@ -83,7 +91,7 @@ h1 {
 }
 
 
-.search-house {
+.search-service {
   border-radius: 15px;
   background-color: #DBE2EF;
   height: 140px;
@@ -91,17 +99,28 @@ h1 {
   padding-top: 20px;
   box-shadow: 0px 3px 7px #666666;
 }
+/*Signup*/
+/*Signup*/
+/*Signup*/
+/*Signup*/
+/*Signup*/
+
+
+.signup_list_itm {
+font-size : 0.75em;
+text-align: left;
+}
 
 
 
 
+/*Work*/
+/*Work*/
+/*Work*/
+/*Work*/
+/*Work*/
+/*Work*/
 
-/*Work*/
-/*Work*/
-/*Work*/
-/*Work*/
-/*Work*/
-/*Work*/
 
 .work_h2 {
   color: #112D4E;
@@ -249,6 +268,21 @@ a:hover {
   box-shadow: 0px 3px 7px #666666;
 }
 
+
+/*Services*/
+.top_btn {
+  background-color: #DBE2EF;
+  color: #112D4E;
+  font-weight: bold;
+  padding: 10px;
+  line-height: 50px;
+  border-radius: 5px;
+  border-color: #112D4E;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: 0px 3px 7px #666666;
+
+}
 
 /*Footer*/
 

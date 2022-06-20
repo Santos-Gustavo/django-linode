@@ -1,19 +1,30 @@
 {% extends 'my_app/index.html' %}
 {% block logo %}
 
-<form method="POST">
+<form class="login_form" method="POST">
     {% csrf_token %}
     Usuario
     {{ form.username }}
     <br>
+    <br>
     Senha
     {{ form.password1 }}
     <br>
+    <ul>
+        <li class="signup_list_itm">Pelo menos 8 caracteres, letras e números </li>
+        <li class="signup_list_itm">Sua senha não pode ser uma senha comumente usada.</li>
+
+    </ul>
     Confirmar Senha
     {{ form.password2 }}
     {{ form.errors }}
     <br>
-    <button type="submit" value="signup">Sign up</button>
+    <br>
+    <br>
+    <br>
+
+    <button class="account_btn" type="submit" value="signup">Sign up</button>
 </form>
+<br><br><br><br><br>
 
 {% endblock %}

@@ -1,22 +1,30 @@
+{% extends 'my_app/index.html' %}
+{% load static %}
+{% block logo %}
 {% if form.errors %}
-    <p>Usuario ou senha incorretos. Tente novamente</p>
+<p>Usuario ou senha incorretos. Tente novamente</p>
 {% endif %}
 
 {% if next %}
-    {% if user.is_authenticated %}
-        <p>Você não tem permissão para acessar essa página</p>
-    {% else %}
-        <p>Por favor Conecte-se</p>
-    {% endif %}
+{% if user.is_authenticated %}
+<p>Você não tem permissão para acessar essa página</p>
+{% else %}
+<p>Por favor Conecte-se</p>
+{% endif %}
 {% endif %}
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-{{ form.username.label_tag }}
-{{ form.username }}
 
-{{ form.password.label_tag }}
-{{ form.password }}
-<input type="submit" value="login">
-<input type="hidden" name="next" value="{{ next }}">
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.username.label_tag }}
+    {{ form.username }}
+    <br><br>
+    {{ form.password.label_tag }}
+    {{ form.password }}
+    <br><br><br>
+    <input class="account_btn" type="submit" value="Login">
+    <input type="hidden" name="next" value="{{ next }}">
 </form>
+<br><br><br><br><br><br><br>
+
+{% endblock %}
