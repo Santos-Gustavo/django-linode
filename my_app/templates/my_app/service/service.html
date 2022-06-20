@@ -96,6 +96,8 @@
                             <div class="img_service">
                                 {% if service.image %}
                                 <img src="{{ service.image.url }}" width=150px height=150px>
+                                {% else %}
+                                <img src="{% static 'images/No_Image_Available.jpg' %}" width=150px height=150px>
                                 {% endif %}
                             </div>
                         </b>

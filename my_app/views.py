@@ -12,7 +12,7 @@ class IndexView(TemplateView):
 
 
 class LoginView(LoginRequiredMixin, TemplateView):
-    template_name = 'my_app/login.html'
+    template_name = 'my_app/index.html'
 
 
 def handle_not_found(request, exception=None):
