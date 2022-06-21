@@ -38,76 +38,6 @@ class HouseView(TemplateView):
 
 
 ####################################################################################################
-# Service
-####################################################################################################
-class ServiceTemplateView(ListView):
-    def __init__(self, service_type):
-        self.template_name = 'my_app/service/service.html'
-        self.service_type = service_type
-        self.model = ServiceModel
-        self.context_object_name = 'services'
-        self.paginate_by = 10
-
-        if self.service_type == 0:
-            self.queryset = ServiceModel.objects.all()
-        else:
-            self.queryset = ServiceModel.objects.filter(type_service=self.service_type)
-
-
-class ServiceView(ServiceTemplateView):
-    def __init__(self):
-        super().__init__(service_type=0)
-    
-    
-class ServiceDomesticView(ServiceTemplateView):
-    def __init__(self):
-        super().__init__(service_type=1)
-
-
-class ServiceHealthyBeautyView(ServiceTemplateView):
-    def __init__(self):
-        super().__init__(service_type=2)
-
-
-class ServiceTransportView(ServiceTemplateView):
-    def __init__(self):
-        super().__init__(service_type=3)
-
-
-class ServiceFoodView(ServiceTemplateView):
-    def __init__(self):
-        super().__init__(service_type=4)
-
-
-class ServiceClassView(ServiceTemplateView):
-    def __init__(self):
-        super().__init__(service_type=5)
-
-
-class ServiceTravelView(ServiceTemplateView):
-    def __init__(self):
-        super().__init__(service_type=6)
-
-
-class ServiceTechnicView(ServiceTemplateView):
-    def __init__(self):
-        super().__init__(service_type=7)
-
-
-class ServiceOtherView(ServiceTemplateView):
-    def __init__(self):
-        super().__init__(service_type=20)
-
-
-class ServiceFormView(LoginRequiredMixin, CreateView):
-    model = ServiceModel
-    template_name = 'my_app/service/service_form.html'
-    form_class = ServiceForm
-    success_url = reverse_lazy('my_app:success-page')
-####################################################################################################
-
-
-####################################################################################################
 # Work
 ####################################################################################################
 class WorkTemplateView(ListView):
@@ -168,4 +98,74 @@ class WorkOtherCreateView(LoginRequiredMixin, CreateView):
     def __init__(self):
         super().__init__(form_class=WorkOtherForm)
         self.template_name = 'my_app/work/work_form.html'
+####################################################################################################
+
+
+####################################################################################################
+# Service
+####################################################################################################
+class ServiceTemplateView(ListView):
+    def __init__(self, service_type):
+        self.template_name = 'my_app/service/service.html'
+        self.service_type = service_type
+        self.model = ServiceModel
+        self.context_object_name = 'services'
+        self.paginate_by = 10
+
+        if self.service_type == 0:
+            self.queryset = ServiceModel.objects.all()
+        else:
+            self.queryset = ServiceModel.objects.filter(type_service=self.service_type)
+
+
+class ServiceView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=0)
+
+
+class ServiceDomesticView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=1)
+
+
+class ServiceHealthyBeautyView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=2)
+
+
+class ServiceTransportView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=3)
+
+
+class ServiceFoodView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=4)
+
+
+class ServiceClassView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=5)
+
+
+class ServiceTravelView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=6)
+
+
+class ServiceTechnicView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=7)
+
+
+class ServiceOtherView(ServiceTemplateView):
+    def __init__(self):
+        super().__init__(service_type=20)
+
+
+class ServiceFormView(LoginRequiredMixin, CreateView):
+    model = ServiceModel
+    template_name = 'my_app/service/service_form.html'
+    form_class = ServiceForm
+    success_url = reverse_lazy('my_app:success-page')
 ####################################################################################################
