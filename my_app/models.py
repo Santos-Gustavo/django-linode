@@ -31,7 +31,7 @@ class WorkModel(models.Model):
 
 class ServiceModel(models.Model):
     # blank=True -> Field is not compulsory
-    type_service = models.IntegerField()  # 1:Domestic, 2:Healthy and Beauty, 3:Transport
+    service_type = models.IntegerField()  # 1:Domestic, 2:Healthy and Beauty, 3:Transport
     title = models.CharField(max_length=70)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$')
     contact = models.CharField(validators=[phone_regex], max_length=17)
@@ -45,4 +45,4 @@ class ServiceModel(models.Model):
     #     return reverse('work', kwargs={'id': self.id})
 
     def __str__(self):
-        return f"Tipo {self.type_service}, em {self.date} {self.title}"
+        return f"Tipo {self.service_type}, em {self.date} {self.title}"

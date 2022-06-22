@@ -2,12 +2,6 @@
 {% load static %}
 
 {% block logo %}
-<h2>
-    <a href="{% url 'my_app:service-form-page' %}">
-        <div class="top_btn">Crie uma publicação aqui </div>
-    </a>
-</h2>
-
 <body>
     <h1>Serviços</h1>
     <hr>
@@ -83,36 +77,33 @@
     </div>
     <br><br>
     <hr>
+<button class="top_btn">
+    <h2>
+        <a href="{% url 'my_app:service-form-page' %}">
+            <div>Crie uma publicação aqui </div>
+        </a>
+    </h2>
+</button>
+
     <h2 class="work_h2"><b>Anuncios</b></h2>
     <br><br>
 
 
     {% for service in services %}
-    <div class="work-job">
-        <div class="row">
-                <div class="col">
-                    <h4>
-                        <b>
-                            <div class="img_service">
-                                {% if service.image %}
-                                <img src="{{ service.image.url }}" width=150px height=150px>
-                                {% else %}
-                                <img src="{% static 'images/No_Image_Available.jpg' %}" width=150px height=150px>
-                                {% endif %}
-                            </div>
-                        </b>
-                    </h4>
-                </div>
-                <div class="col">
-                    <b> {{ service.title }} </b>
-                    <br>
-                    Preço €{{ service.price|floatformat:2 }}
-                    <br>
-                    {{ service.contact }}
-                    <br>
-                    {{ service.description }}
-                </div>
-            </div>
+    <div class="service_tile row">
+        <div class="col-lg-6">
+                {% if service.image %}
+                <img class="img_service" src="{{ service.image.url }}" width=300px height=300px >
+                {% endif %}
+        </div>
+        <div class="col-lg-6">
+            <b> {{ service.title }} </b>
+            <br>
+            Preço €{{ service.price|floatformat:2 }}
+            <br>
+            {{ service.contact }}
+            <br>
+            {{ service.description }}
         </div>
     </div>
     <br><br>

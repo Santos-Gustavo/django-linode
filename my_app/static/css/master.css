@@ -21,18 +21,36 @@ h1 {
 /*Index*/
 /* Top*/
 .account_btn{
-border-radius: 5px;
-background-color: #F9F7F7;
-border-color : #112D4E;
+    border-radius: 5px;
+    background-color: #F9F7F7;
+    border-color : #112D4E;
+    position : relative;
+    right: -30%;
+    width: 18%;
+    min-width: 100px;
 }
 
 .logo-website-img {
-  width: 300px;
+  width: 35%;
   padding-bottom: 2px;
+  min-width: 300px;
+  max-width:600px;
 }
 
 .p_logo {
   color: #112D4E;
+}
+
+.menu-container {
+position : relative;
+}
+
+.nav_menu {
+border-radius: 5px;
+background-color: #F9F7F7;
+border-color : #112D4E;
+width: 20%;
+min-width: 100px;
 }
 
 .top-container {
@@ -55,19 +73,22 @@ border-color : #112D4E;
   background-color: #DBE2EF;
   line-height: 30px;
   padding: 5% 5% 10%;
+  padding-bottom: 80px;
 }
 
-.welcome {
-  margin: auto;
-  font-weight: 550;
-}
 
 .welcome-text {
   color: #112D4E;
+  position : relative;
+  text-align: center;
+  top:40%;
+  font-weight: 900
 }
 
+
 .hands-img {
-  width: 90%;
+  width: 80%;
+  max-width : 700px;
 }
 
 /* Bottom*/
@@ -80,25 +101,19 @@ border-color : #112D4E;
   padding: 20px;
 }
 
-.search-job {
+.Procurar {
   border-radius: 15px;
   background-color: #DBE2EF;
+  border-color:#DBE2EF;
   height: 140px;
   width: 160px;
-  padding-top: 20px;
-  margin-right: 20px;
+  padding-top: 5px;
   box-shadow: 0px 3px 7px #666666;
+  margin: 0 auto;
+  width: 30%;
+  max-width:300px;
 }
 
-
-.search-service {
-  border-radius: 15px;
-  background-color: #DBE2EF;
-  height: 140px;
-  width: 160px;
-  padding-top: 20px;
-  box-shadow: 0px 3px 7px #666666;
-}
 /*Signup*/
 /*Signup*/
 /*Signup*/
@@ -135,6 +150,7 @@ text-align: left;
   line-height: 50px;
   border-radius: 5px;
   box-shadow: 0px 3px 7px #666666;
+  min-width: 150px;
 
 }
 
@@ -146,6 +162,11 @@ text-align: left;
   border-color: #112D4E;
   border: 2px;
   border-style: solid;
+}
+
+.work_tile{
+  width: 60%;
+  margin : 0 auto;
 }
 
 .col-6 {
@@ -281,8 +302,33 @@ a:hover {
   border-style: solid;
   border-width: 2px;
   box-shadow: 0px 3px 7px #666666;
+  width : 40%;
+}
+
+.service_tile{
+  background-color: #DBE2EF;
+  padding: 10px;
+  border-radius: 15px;
+  text-align: left;
+  border-color: #112D4E;
+  border: 2px;
+  border-style: solid;
+  width: 60%;
+  margin : 0 auto;
+}
+/*Login*/
+.login_btn{
+    border-radius: 5px;
+    background-color: #F9F7F7;
+    border-color : #112D4E;
+    width: 10%;
+    min-width: 100px;
+    font-size: 18px;
 
 }
+
+
+
 
 /*Footer*/
 
@@ -296,3 +342,5 @@ footer {
 .copyright {
   color: #F9F7F7;
 }
+
+

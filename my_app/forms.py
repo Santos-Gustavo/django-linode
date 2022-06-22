@@ -85,6 +85,6 @@ class ServiceForm(ModelForm):
         TYPESERVICE_CHOICES = ((1, 'Doméstico'), (2, 'Saúde e Beleza'), (3, 'Transporte'), (4, 'Comida'), (5, 'Aula'),
                                (6, 'Viagem'), (7, 'Técnico'), (20, 'Outros'))
         widgets = {
-            'type_service': forms.Select(choices=TYPESERVICE_CHOICES, attrs={'class': 'form-control'})
+            'service_type': forms.Select(choices=TYPESERVICE_CHOICES, attrs={'class': 'form-control'})
         }
         error_messages = {'contact': {'phone_regex': 'O telefone deve ser no formato +32123456789 ou +351123456789'}}

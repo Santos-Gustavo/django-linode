@@ -8,21 +8,9 @@ urlpatterns = [
     path('', IndexView.as_view(), name='index-page'),
     path('success/', SuccessView.as_view(), name='success-page'),
     path('login/', LoginView.as_view(), name='login-page'),
-    path('success-account/', SuccessView.as_view(), name='success-account-page'),
+    path('success-account/', SuccessAccountView.as_view(), name='success-account-page'),
     path('signup/', SignUpView.as_view(), name='signup-page'),
     path('house/', HouseView.as_view(), name='house-page'),
-    path('service/', include([
-        path('', ServiceView.as_view(), name='service-page'),
-        path('form/', ServiceFormView.as_view(), name='service-form-page'),
-        path('domestic/', ServiceDomesticView.as_view(), name='service-domestic-page'),
-        path('healthy_beauty/', ServiceHealthyBeautyView.as_view(), name='service-healthy-beauty-page'),
-        path('transport/', ServiceTransportView.as_view(), name='service-transport-page'),
-        path('food/', ServiceFoodView.as_view(), name='service-food-page'),
-        path('class/', ServiceClassView.as_view(), name='service-class-page'),
-        path('travel/', ServiceTravelView.as_view(), name='service-travel-page'),
-        path('technic/', ServiceTechnicView.as_view(), name='service-technic-page'),
-        path('other/', ServiceView.as_view(), name='service-other-page'),
-    ])),
     path('work/', include([
         path('', WorkView.as_view(), name='work-page'),
         path('construction/', include([
@@ -37,5 +25,17 @@ urlpatterns = [
             path('', WorkOtherView.as_view(), name='work-other-page'),
             path('form/', WorkOtherCreateView.as_view(), name='work-other-form-page')
         ])),
+    ])),
+    path('service/', include([
+        path('', ServiceView.as_view(), name='service-page'),
+        path('form/', ServiceFormView.as_view(), name='service-form-page'),
+        path('domestic/', ServiceDomesticView.as_view(), name='service-domestic-page'),
+        path('healthy_beauty/', ServiceHealthyBeautyView.as_view(), name='service-healthy-beauty-page'),
+        path('transport/', ServiceTransportView.as_view(), name='service-transport-page'),
+        path('food/', ServiceFoodView.as_view(), name='service-food-page'),
+        path('technic/', ServiceTechnicView.as_view(), name='service-technic-page'),
+        path('other/', ServiceView.as_view(), name='service-other-page'),
+        path('class/', ServiceClassView.as_view(), name='service-class-page'),
+        path('travel/', ServiceTravelView.as_view(), name='service-travel-page'),
     ]))
 ]
