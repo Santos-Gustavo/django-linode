@@ -115,7 +115,7 @@ class ServiceTemplateView(ListView):
         if self.service_type == 0:
             self.queryset = ServiceModel.objects.all()
         else:
-            self.queryset = ServiceModel.objects.filter(type_service=self.service_type)
+            self.queryset = ServiceModel.objects.filter(service_type=self.service_type)
 
 
 class ServiceView(ServiceTemplateView):
