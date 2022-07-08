@@ -29,8 +29,8 @@
       <div class="work-table-row">Outros</div>
     </a>
   </div>
-</div>
-<br><br>
+</div><br>
+<hr>
 
 {##}
 {# <h2><b>Destaques</b></h2>#}
@@ -42,17 +42,13 @@
 
 
 {% for job in jobs %}
-<div class="row">
-  <div class="work_tile col-12 col-sm-12">
     <div class="work-job">
       <h4><b>{{ job.profession }}</b></h4>
       Postado em {{ job.date }}
       <div class="work-job-salary">€{{ job.salary|floatformat:2 }} a hora</div>
       {{ job.name }} <br> {{ job.contact }} <br>
-      {{ job.description }}
+      {{ job.description | truncatechars:100 }}
     </div>
-  </div>
-</div>
 <br><br>
 {% endfor %}
 
