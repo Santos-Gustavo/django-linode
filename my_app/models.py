@@ -13,7 +13,7 @@ class WorkModel(models.Model):
     language_english = models.BooleanField(blank=True)
     language_dutch = models.BooleanField(blank=True)
     drivers_license = models.BooleanField(blank=True)
-    description = models.TextField(max_length=1000, blank=True)
+    description = models.TextField(max_length=400, blank=True)
     date = models.DateField(auto_now_add=True)
 
     # def get_absolute_url(self):
@@ -33,7 +33,7 @@ class ServiceModel(models.Model):
     contact = models.CharField(max_length=17)
     price = models.FloatField(blank=True)
     image = models.ImageField(upload_to='service/%Y/%m/%d/', blank=True)
-    description = models.TextField(max_length=1000, blank=True)
+    description = models.TextField(max_length=400, blank=True)
 
     date = models.DateField(auto_now_add=True)
 

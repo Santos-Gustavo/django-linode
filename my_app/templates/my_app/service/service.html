@@ -90,22 +90,24 @@
 
 
     {% for service in services %}
-    <div class="service_tile row">
-        <div class="square col-lg-6">
+    <div class="service_tile">
+        <div class="col-lg-2 col-sm-3 col-xs-3">
             {% if service.image %}
-            <img src="{{ service.image.url }}" />
+            <img src="{{ service.image.url }}" class="service_image img-fluid rounded float-left border border-dark">
             {% else %}
-            <img src="{% static 'images/No_Image_Available.jpg' %}" />
+            <img src="{% static 'images/No_Image_Available.jpg' %}" class="service_image img-fluid rounded border border-dark">
             {% endif %}
         </div>
-        <div class="col-lg-6">
+        <div class="col-auto col-sm-auto col-xs-auto">
             <b> {{ service.title }} </b>
             <br>
-            Preço €{{ service.price|floatformat:2 }}R
+            Preço €{{ service.price|floatformat:2 }}
             <br>
             {{ service.contact }}
             <br>
-            {{ service.description }}
+            <div class="service_description">
+                {{ service.description | truncatechars:50 | wordwrap:5}}
+            </div>
         </div>
     </div>
     <br><br>

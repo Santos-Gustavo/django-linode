@@ -2,8 +2,7 @@ from django import forms
 from .models import WorkModel, ServiceModel
 from django.forms import ModelForm
 
-error_messages_work = {'salary': {'max_value': 'Valor máximo por hora é de €99.99'},
-                       'contact': {'phone_regex': 'O telefone deve ser no formato +32123456789 ou +351123456789'}}
+error_messages_work = {'salary': {'max_value': 'Valor máximo por hora é de €99.99'}, }
 languages = (('Frances', 'Frances'), ('Ingles', 'Ingles'), ('Neerlandes', 'Neerlandes'))
 
 
@@ -87,4 +86,3 @@ class ServiceForm(ModelForm):
         widgets = {
             'service_type': forms.Select(choices=TYPESERVICE_CHOICES, attrs={'class': 'form-control'})
         }
-        error_messages = {'contact': {'phone_regex': 'O telefone deve ser no formato +32123456789 ou +351123456789'}}
