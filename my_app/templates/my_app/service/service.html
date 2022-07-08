@@ -91,15 +91,17 @@
 
     {% for service in services %}
     <div class="service_tile row">
-        <div class="col-lg-6">
-                {% if service.image %}
-                <img class="img_service" src="{{ service.image.url }}" width=300px height=300px >
-                {% endif %}
+        <div class="square col-lg-6">
+            {% if service.image %}
+            <img src="{{ service.image.url }}" />
+            {% else %}
+            <img src="{% static 'images/No_Image_Available.jpg' %}" />
+            {% endif %}
         </div>
         <div class="col-lg-6">
             <b> {{ service.title }} </b>
             <br>
-            Preço €{{ service.price|floatformat:2 }}
+            Preço €{{ service.price|floatformat:2 }}R
             <br>
             {{ service.contact }}
             <br>
