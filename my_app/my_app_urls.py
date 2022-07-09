@@ -28,6 +28,7 @@ urlpatterns = [
     ])),
     path('service/', include([
         path('', ServiceView.as_view(), name='service-page'),
+        path('<id>', ServiceItemView.as_view(), name='service-item-page'),
         path('form/', ServiceFormView.as_view(), name='service-form-page'),
         path('domestic/', ServiceDomesticView.as_view(), name='service-domestic-page'),
         path('healthy_beauty/', ServiceHealthyBeautyView.as_view(), name='service-healthy-beauty-page'),

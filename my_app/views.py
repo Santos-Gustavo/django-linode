@@ -118,6 +118,14 @@ class ServiceTemplateView(ListView):
             self.queryset = ServiceModel.objects.filter(service_type=self.service_type)
 
 
+class ServiceItemView(ListView):
+    template_name = 'my_app/service/service_item.html'
+    model = ServiceModel
+    context_object_name = 'services'
+    service_id = ServiceModel.objects.get(id)
+    queryset = ServiceModel.objects.filter(id=1)
+
+
 class ServiceView(ServiceTemplateView):
     def __init__(self):
         super().__init__(service_type=0)

@@ -5,19 +5,6 @@
 <body>
     <h1>Serviços</h1>
     <hr>
-    {# <table style="width: 100%">#}
-        {# <tr>#}
-            {# <th>Doméstico</th>#}
-            {# <th>Saúde e Beleza</th>#}
-            {# <th>Transporte</th>#}
-            {# <th>Comida</th>#}
-            {# <th>Aulas</th>#}
-            {# <th>Viagens</th>#}
-            {# <th>Técnico</th>#}
-            {# <th>Outros</th>#}
-            {# </tr>#}
-        {# </table>#}
-
     <div class="row">
         <div class="col">
             <div class="menu_elmt">
@@ -76,18 +63,6 @@
         </div>
     </div>
     <hr>
-<button class="top_btn">
-    <h2>
-        <a href="{% url 'my_app:service-form-page' %}">
-            <div>Crie uma publicação</div>
-        </a>
-    </h2>
-</button>
-<hr>
-
-    <h2 class="work_h2"><b>Anuncios</b></h2>
-    <br><br>
-
 
     {% for service in services %}
     <div class="service_tile row">
@@ -99,7 +74,7 @@
             {% endif %}
         </div>
         <div class="col">
-            <a href="{{ service.get_absolute_url }}"><b>{{ service.title }}</b></a><br>
+            <b> {{ service.title }} </b><br>
             €{{ service.price|floatformat:2 }}<br>
             {{ service.contact }}<br>
             <div class="service_description">
