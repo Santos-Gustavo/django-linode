@@ -14,11 +14,11 @@ class WorkModel(models.Model):
     language_english = models.BooleanField(blank=True)
     language_dutch = models.BooleanField(blank=True)
     drivers_license = models.BooleanField(blank=True)
-    description = models.TextField(max_length=400, blank=True)
+    description = models.TextField(max_length=1000, blank=True)
     date = models.DateField(auto_now_add=True)
 
     def get_absolute_url(self):
-        return reverse('my_app:work-page', args=(self.id,))
+        return reverse('my_app:work-item-page', args=(self.id,))
 
     def __str__(self):
         return (
@@ -35,7 +35,7 @@ class ServiceModel(models.Model):
     price = models.FloatField(blank=True)
     address = models.CharField(max_length=50)
     image = models.ImageField(upload_to='service/%Y/%m/%d/', blank=True)
-    description = models.TextField(max_length=400, blank=True)
+    description = models.TextField(max_length=1000, blank=True)
     date = models.DateField(auto_now_add=True)
 
     def get_absolute_url(self):

@@ -54,10 +54,10 @@ class WorkViewBase(ListView):
             self.queryset = WorkModel.objects.filter(type_job=self.work_type)
 
 
-# class WorkItemView(DetailView):
-#     template_name = 'my_app/service/service_item.html'
-#     model = ServiceModel
-#     context_object_name = 'service'
+class WorkItemView(DetailView):
+    template_name = 'my_app/work/work_item.html'
+    model = WorkModel
+    context_object_name = 'job'
 
 
 class WorkView(WorkViewBase):

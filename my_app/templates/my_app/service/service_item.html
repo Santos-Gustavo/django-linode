@@ -77,8 +77,9 @@
             <b> {{ service.title }} </b><br>
             €{{ service.price|floatformat:2 }}<br>
             {{ service.contact }}<br>
+            {{ service.address }}
             <div class="service_description">
-                {{ service.description | truncatechars:60 }}
+                {{ service.description }}
             </div>
         </div>
     </div>

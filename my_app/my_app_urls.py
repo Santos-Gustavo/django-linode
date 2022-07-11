@@ -13,6 +13,7 @@ urlpatterns = [
     path('house/', HouseView.as_view(), name='house-page'),
     path('work/', include([
         path('', WorkView.as_view(), name='work-page'),
+        path('<int:pk>', WorkItemView.as_view(), name='work-item-page'),
         path('construction/', include([
             path('', WorkConstructionView.as_view(), name='work-construction-page'),
             path('form/', WorkConstructionCreateView.as_view(), name='work-construction-form-page')

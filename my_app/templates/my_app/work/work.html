@@ -43,7 +43,7 @@
 
 {% for job in jobs %}
     <div class="work-job">
-      <h4><b>{{ job.profession }}</b></h4>
+      <a href="{{ job.get_absolute_url }}"><h4><b>{{ job.profession }}</b></h4></a>
       Postado em {{ job.date }}
       <div class="work-job-salary">€{{ job.salary|floatformat:2 }} a hora</div>
       {{ job.name }} <br> {{ job.contact }} <br>
