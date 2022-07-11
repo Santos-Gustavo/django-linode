@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy
 from django.shortcuts import render
-from django.views.generic import TemplateView, CreateView, ListView
+from django.views.generic import TemplateView, CreateView, ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from .models import WorkModel, ServiceModel
@@ -40,7 +40,7 @@ class HouseView(TemplateView):
 ####################################################################################################
 # Work
 ####################################################################################################
-class WorkTemplateView(ListView):
+class WorkViewBase(ListView):
     def __init__(self, work_type, template_name):
         self.template_name = template_name
         self.work_type = work_type
@@ -54,22 +54,28 @@ class WorkTemplateView(ListView):
             self.queryset = WorkModel.objects.filter(type_job=self.work_type)
 
 
-class WorkView(WorkTemplateView):
+class WorkItemView(DetailView):
+    template_name = 'my_app/work/work_item.html'
+    model = WorkModel
+    context_object_name = 'job'
+
+
+class WorkView(WorkViewBase):
     def __init__(self):
         super().__init__(work_type=0, template_name='my_app/work/work.html')
 
 
-class WorkConstructionView(WorkTemplateView):
+class WorkConstructionView(WorkViewBase):
     def __init__(self):
         super().__init__(work_type=1, template_name='my_app/work/work_construction.html')
 
 
-class WorkCleaningView(WorkTemplateView):
+class WorkCleaningView(WorkViewBase):
     def __init__(self):
         super().__init__(work_type=2, template_name='my_app/work/work_cleaning.html')
 
 
-class WorkOtherView(WorkTemplateView):
+class WorkOtherView(WorkViewBase):
     def __init__(self):
         super().__init__(work_type=3, template_name='my_app/work/work_others.html')
 
@@ -104,13 +110,14 @@ class WorkOtherCreateView(LoginRequiredMixin, CreateView):
 ####################################################################################################
 # Service
 ####################################################################################################
-class ServiceTemplateView(ListView):
+class ServiceViewBase(ListView):
     def __init__(self, service_type):
         self.template_name = 'my_app/service/service.html'
         self.service_type = service_type
         self.model = ServiceModel
         self.context_object_name = 'services'
         self.paginate_by = 10
+        self.ordering = ['-id']
 
         if self.service_type == 0:
             self.queryset = ServiceModel.objects.all()
@@ -118,47 +125,53 @@ class ServiceTemplateView(ListView):
             self.queryset = ServiceModel.objects.filter(service_type=self.service_type)
 
 
-class ServiceView(ServiceTemplateView):
+class ServiceItemView(DetailView):
+    template_name = 'my_app/service/service_item.html'
+    model = ServiceModel
+    context_object_name = 'service'
+
+
+class ServiceView(ServiceViewBase):
     def __init__(self):
         super().__init__(service_type=0)
 
 
-class ServiceDomesticView(ServiceTemplateView):
+class ServiceDomesticView(ServiceViewBase):
     def __init__(self):
         super().__init__(service_type=1)
 
 
-class ServiceHealthyBeautyView(ServiceTemplateView):
+class ServiceHealthyBeautyView(ServiceViewBase):
     def __init__(self):
         super().__init__(service_type=2)
 
 
-class ServiceTransportView(ServiceTemplateView):
+class ServiceTransportView(ServiceViewBase):
     def __init__(self):
         super().__init__(service_type=3)
 
 
-class ServiceFoodView(ServiceTemplateView):
+class ServiceFoodView(ServiceViewBase):
     def __init__(self):
         super().__init__(service_type=4)
 
 
-class ServiceClassView(ServiceTemplateView):
+class ServiceClassView(ServiceViewBase):
     def __init__(self):
         super().__init__(service_type=5)
 
 
-class ServiceTravelView(ServiceTemplateView):
+class ServiceTravelView(ServiceViewBase):
     def __init__(self):
         super().__init__(service_type=6)
 
 
-class ServiceTechnicView(ServiceTemplateView):
+class ServiceTechnicView(ServiceViewBase):
     def __init__(self):
         super().__init__(service_type=7)
 
 
-class ServiceOtherView(ServiceTemplateView):
+class ServiceOtherView(ServiceViewBase):
     def __init__(self):
         super().__init__(service_type=20)
 

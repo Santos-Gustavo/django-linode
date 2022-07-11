@@ -1,0 +1,73 @@
+{% extends 'my_app/index.html' %}
+{% load static %}
+
+{% block logo %}
+    {% block work %}
+    {% endblock %}
+    <div class="row">
+        <div class="btn_work col-6 col-sm-3">
+            <a href="{% url 'my_app:work-construction-page' %}">
+                <div class="work-table-row">Construção</div>
+            </a>
+        </div>
+        <div class="btn_work col-6 col-sm-3">
+            <a href="{% url 'my_app:work-cleaning-page' %}">
+                <div class="work-table-row">Limpeza</div>
+            </a>
+        </div>
+        <!--<div class="col-6 col-sm-3">
+    <div class="work-table-row">Comércio</div>
+  </div>#}
+  <div class="col-6 col-sm-3">
+    <div class="work-table-row">HoReCa</div>
+  </div>
+  <div class="col-6 col-sm-3">
+    <div class="work-table-row">Saúde/Beleza</div>
+  </div>-->
+        <div class="btn_work col-6 col-sm-3">
+            <a href="{% url 'my_app:work-other-page' %}">
+                <div class="work-table-row">Outros</div>
+            </a>
+        </div>
+    </div><br>
+    <hr>
+
+    {##}
+    {# <h2><b>Destaques</b></h2>#}
+    {# <br><br><br><br>#}
+    {##}
+
+    <h2 class="work_h2"><b>Anuncios</b></h2>
+    <br><br>
+
+
+
+    <div class="work-job">
+        <h4><b>{{ job.profession }}</b></h4>
+        Postado em {{ job.date }}
+        <div class="work-job-salary">€{{ job.salary|floatformat:2 }} a hora</div>
+        {{ job.name }} <br> {{ job.contact }} <br>
+        {{ job.description }}
+    </div>
+    <br><br>
+
+
+    <div class="pagination">
+  <span class="step-links">
+    {% if page_obj.has_previous %}
+        <a href="?page=1">&laquo; first</a>
+        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+    {% endif %}
+
+      <span class="current">
+      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+    </span>
+
+      {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">next</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+      {% endif %}
+  </span>
+    </div>
+
+{% endblock %}

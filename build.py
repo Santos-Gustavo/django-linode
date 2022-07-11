@@ -6,7 +6,7 @@
 # description = "Rede de imigrantes brasileiros na Belgica!"
 # name = 'DjangoApp'  # Falta de criatividade é foda
 # license = 'GNU GPL v3'
-# version = '0.0.4'
+# version = '0.1.2'
 #
 # default_task = ['clean', 'analyze', 'publish']
 #
