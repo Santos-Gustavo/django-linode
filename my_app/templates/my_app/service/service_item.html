@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block logo %}
-<body>
+    <body>
     <h1>Serviços</h1>
     <hr>
     <div class="row">
@@ -24,7 +24,7 @@
                     <div class="work-table-row">Técnico</div>
                 </a>
             </div>
-                    </div>
+        </div>
         <div hidden class="col">
             <div class="menu_elmt">
                 <a href="{% url 'my_app:service-class-page' %}">
@@ -64,13 +64,13 @@
     </div>
     <hr>
 
-    {% for service in services %}
+
     <div class="service_tile row">
         <div class="square col-lg-6">
             {% if service.image %}
-            <img src="{{ service.image.url }}" class="service_image rounded">
+                <img src="{{ service.image.url }}" class="service_image rounded">
             {% else %}
-            <img src="{% static 'images/No_Image_Available.jpg' %}" class="service_image rounded">
+                <img src="{% static 'images/No_Image_Available.jpg' %}" class="service_image rounded">
             {% endif %}
         </div>
         <div class="col">
@@ -78,16 +78,17 @@
             €{{ service.price|floatformat:2 }}<br>
             {{ service.contact }}<br>
             <div class="service_description">
-                {{ service.description | truncatechars:60}}
+                {{ service.description | truncatechars:60 }}
             </div>
         </div>
-    </div><br>
-    {% endfor %}
+    </div>
+    <br>
+
     <div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
             {% endif %}
 
             <span class="current">
@@ -95,11 +96,11 @@
             </span>
 
             {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
             {% endif %}
         </span>
     </div>
 
-</body>
+    </body>
 {% endblock %}
