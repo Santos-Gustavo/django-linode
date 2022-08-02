@@ -13,7 +13,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: [3.7]
 
     steps:
     - uses: actions/checkout@v3
@@ -28,7 +28,7 @@ jobs:
     - name: Run Tests
       env:
         DEBUG: "1"
-        SECRET_KEY: ${{ env.DJANGO_SECRET_KEY }}
+        SECRET_KEY: 'test_key'
         DATABASE_ENGINE: 'django.db.backends.sqlite3'
         DATABASE_NAME: ./db.sqlite3
         DATABASE_USER: "test"
