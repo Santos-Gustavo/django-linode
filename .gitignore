@@ -8,3 +8,4 @@ venv
 /my_app/migrations/*
 /.coverage
 /media/*
+/'db.sqlite3'
