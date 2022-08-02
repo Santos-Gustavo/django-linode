@@ -29,5 +29,11 @@ jobs:
       env:
         DEBUG: "1"
         SECRET_KEY: ${{ env.DJANGO_SECRET_KEY }}
+        DATABASE_ENGINE: 'django.db.backends.sqlite3'
+        DATABASE_NAME: ./db.sqlite3
+        DATABASE_USER: "test"
+        DATABASE_PASSWORD: "senha123"
+        DATABASE_HOST: "127.0.0.1"
+        DATABASE_PORT: "5432"
       run: |
         python manage.py test
