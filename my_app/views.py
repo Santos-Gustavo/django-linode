@@ -88,20 +88,14 @@ class WorkFormTemplate(LoginRequiredMixin, CreateView):
         self.success_url = reverse_lazy('my_app:success-page')
         self.template_name = 'my_app/work/work_form.html'
 
-    # def form_valid(self, form):
-    #     form.instance.author = self.request.user
-    #     return super().form_valid(form)
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 class WorkConstructionCreateView(WorkFormTemplate):
     def __init__(self):
         super().__init__(form_class=WorkConstructionForm)
-
-    def form_valid(self, form):
-        self.object = form.save(commit=False)
-        self.object.author = self.request.user
-        self.object.save()
-        return HttpResponseRedirect(self.get_success_url())
 
 
 class WorkCleaningCreateView(WorkFormTemplate):
@@ -213,7 +207,7 @@ class ServiceUpdateView(LoginRequiredMixin, UpdateView):
     model = ServiceModel
     form_class = ServiceForm
     success_url = reverse_lazy('my_app:success-page')
-    template_name = 'my_app/work/work_form.html'
+    template_name = 'my_app/service/service_form.html'
 
 
 class ServiceDeleteView(LoginRequiredMixin, DeleteView):
