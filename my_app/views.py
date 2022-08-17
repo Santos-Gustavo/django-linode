@@ -207,4 +207,18 @@ class ServiceFormView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+class ServiceUpdateView(LoginRequiredMixin, UpdateView):
+    model = ServiceModel
+    form_class = ServiceForm
+    success_url = reverse_lazy('my_app:success-page')
+    template_name = 'my_app/work/work_form.html'
+
+
+class ServiceDeleteView(LoginRequiredMixin, DeleteView):
+    model = ServiceModel
+    form_class = ServiceForm
+    success_url = reverse_lazy('my_app:service-page')
+    template_name = 'my_app/delete_post.html'
 ####################################################################################################

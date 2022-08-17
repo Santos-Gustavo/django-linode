@@ -100,7 +100,12 @@
         </div>
         <div class="col">
             <a href="{{ service.get_absolute_url }}"><b>{{ service.title }}</b></a><br>
-            €{{ service.price|floatformat:2 }}<br>
+            {% if user.id == service.author.id %}
+                <small><a href="{% url 'my_app:work-update-page' service.pk %}">(Edit)</a></small>
+                <small><a href="{% url 'my_app:work-delete-page' service.pk %}">(Delete)</a></small><br/>
+            {% endif %}
+            Postado por {{ service.author.username }} em {{ service.date }}
+            <div class="work-job-salary">€{{ service.price|floatformat:2 }}<br></div>
             {{ service.contact }}<br>
             <div class="service_description">
                 {{ service.description | truncatechars:60}}
