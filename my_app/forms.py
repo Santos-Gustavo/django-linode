@@ -35,6 +35,7 @@ class WorkConstructionForm(ModelForm):
         widgets = {
             'profession': forms.Select(choices=PROFESSION_CHOICES, attrs={'class': 'form-control'}),
             'language': forms.Select(choices=LANGUAGE_CHOICES, attrs={'class': 'form-control'}),
+            'author': forms.Select(attrs={'class': 'form-control'}),
             'type_job': forms.Select(choices=TYPEJOB_CHOICES, attrs={'class': 'form-control'})
         }
 

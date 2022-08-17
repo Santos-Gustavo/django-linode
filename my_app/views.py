@@ -1,8 +1,9 @@
 from django.urls import reverse_lazy
 from django.shortcuts import render
-from django.views.generic import TemplateView, CreateView, ListView, DetailView
+from django.views.generic import TemplateView, CreateView, ListView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponseRedirect
 from .models import WorkModel, ServiceModel
 from .forms import *
 
@@ -82,28 +83,49 @@ class WorkOtherView(WorkViewBase):
 
 class WorkFormTemplate(LoginRequiredMixin, CreateView):
     def __init__(self, form_class):
-        # For some reason specify template_name here doesn't work, must investigate
         self.model = WorkModel
         self.form_class = form_class
         self.success_url = reverse_lazy('my_app:success-page')
+        self.template_name = 'my_app/work/work_form.html'
+
+    # def form_valid(self, form):
+    #     form.instance.author = self.request.user
+    #     return super().form_valid(form)
 
 
 class WorkConstructionCreateView(WorkFormTemplate):
     def __init__(self):
         super().__init__(form_class=WorkConstructionForm)
-        self.template_name = 'my_app/work/work_form.html'
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.author = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 
-class WorkCleaningCreateView(LoginRequiredMixin, CreateView):
+class WorkCleaningCreateView(WorkFormTemplate):
     def __init__(self):
         super().__init__(form_class=WorkCleaningForm)
-        self.template_name = 'my_app/work/work_form.html'
 
 
-class WorkOtherCreateView(LoginRequiredMixin, CreateView):
+class WorkOtherCreateView(WorkFormTemplate):
     def __init__(self):
         super().__init__(form_class=WorkOtherForm)
-        self.template_name = 'my_app/work/work_form.html'
+
+
+class WorkUpdateView(LoginRequiredMixin, UpdateView):
+    model = WorkModel
+    form_class = WorkOtherForm
+    success_url = reverse_lazy('my_app:success-page')
+    template_name = 'my_app/work/work_form.html'
+
+
+class WorkDeleteView(LoginRequiredMixin, DeleteView):
+    model = WorkModel
+    form_class = WorkOtherForm
+    success_url = reverse_lazy('my_app:work-page')
+    template_name = 'my_app/delete_post.html'
 ####################################################################################################
 
 
@@ -181,4 +203,8 @@ class ServiceFormView(LoginRequiredMixin, CreateView):
     template_name = 'my_app/service/service_form.html'
     form_class = ServiceForm
     success_url = reverse_lazy('my_app:success-page')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 ####################################################################################################

@@ -34,6 +34,6 @@ jobs:
         DATABASE_USER: "test"
         DATABASE_PASSWORD: "senha123"
         DATABASE_HOST: "127.0.0.1"
-        DATABASE_PORT: "5432"
+        DATABASE_PORT: "1111"
       run: |
         python manage.py test
