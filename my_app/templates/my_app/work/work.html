@@ -44,8 +44,10 @@
     {% for job in jobs %}
         <div class="work-job">
             <a href="{{ job.get_absolute_url }}"><h4><b>{{ job.profession }}</b></h4></a>
-            <small><a href="{% url 'my_app:work-update-page' job.pk%}">(Edit)</a></small>
-            <small><a href="{% url 'my_app:work-delete-page' job.pk%}">(Delete)</a></small><br/>
+            {% if user.id == job.author.id %}
+                <small><a href="{% url 'my_app:work-update-page' job.pk %}">(Edit)</a></small>
+                <small><a href="{% url 'my_app:work-delete-page' job.pk %}">(Delete)</a></small><br/>
+            {% endif %}
             Postado por {{ job.author.username }} em {{ job.date }}
             <div class="work-job-salary">€{{ job.salary|floatformat:2 }} a hora</div>
             {{ job.name }} <br> {{ job.contact }} <br>
