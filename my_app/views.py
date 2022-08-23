@@ -48,6 +48,7 @@ class WorkViewBase(ListView):
         self.model = WorkModel
         self.context_object_name = 'jobs'
         self.paginate_by = 10
+        self.ordering = ['-id']
 
         if self.work_type == 0:
             self.queryset = WorkModel.objects.all()

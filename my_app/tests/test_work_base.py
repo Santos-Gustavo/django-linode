@@ -21,6 +21,7 @@ class WorkTestsBase(TestCase):
             type_job=type_job,
             name='work_name_test',
             profession='profession test',
+            author_id=1,
             contact='+32 123 456',
             salary=22,
             language_french=True,
@@ -34,6 +35,7 @@ class WorkTestsBase(TestCase):
         return ServiceModel.objects.create(
             service_type=service_type,
             title='service_title',
+            author_id=1,
             contact='+32 123 456',
             price=5000
         )

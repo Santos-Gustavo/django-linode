@@ -5,6 +5,7 @@ from .test_work_base import WorkTestsBase
 
 class ViewsTests(WorkTestsBase):
     def test_work_model_loads_in_page_template(self, type_job=0, template_name='my_app:work-page'):
+        self.make_user()
         self.make_job(type_job=type_job)
         response = self.client.get(reverse(template_name))
         content = response.content.decode('utf-8')
@@ -26,6 +27,7 @@ class ViewsTests(WorkTestsBase):
         self.test_work_model_loads_in_page_template(type_job=3, template_name='my_app:work-other-page')
 
     def test_service_model_loads_in_page_template(self, service_type=0, template_name='my_app:service-page'):
+        self.make_user()
         self.make_service(service_type=service_type)
         response = self.client.get(reverse(template_name))
         content = response.content.decode('utf-8')
