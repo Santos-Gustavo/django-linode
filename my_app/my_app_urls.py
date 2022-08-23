@@ -40,7 +40,7 @@ urlpatterns = [
         path('other/', ServiceView.as_view(), name='service-other-page'),
         path('class/', ServiceClassView.as_view(), name='service-class-page'),
         path('travel/', ServiceTravelView.as_view(), name='service-travel-page'),
-        path('edit/<int:pk>', ServiceUpdateView.as_view(), name='work-update-page'),
-        path('delete/<int:pk>', ServiceDeleteView.as_view(), name='work-delete-page'),
+        path('edit/<int:pk>', ServiceUpdateView.as_view(), name='service-update-page'),
+        path('delete/<int:pk>', ServiceDeleteView.as_view(), name='service-delete-page'),
     ]))
 ]
