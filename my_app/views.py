@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, CreateView, ListView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
-from django.http import HttpResponseRedirect
 from .models import WorkModel, ServiceModel
 from .forms import *
 
