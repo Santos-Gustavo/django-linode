@@ -25,6 +25,8 @@ urlpatterns = [
             path('', WorkOtherView.as_view(), name='work-other-page'),
             path('form/', WorkOtherCreateView.as_view(), name='work-other-form-page')
         ])),
+        path('edit/<int:pk>', WorkUpdateView.as_view(), name='work-update-page'),
+        path('delete/<int:pk>', WorkDeleteView.as_view(), name='work-delete-page'),
     ])),
     path('service/', include([
         path('', ServiceView.as_view(), name='service-page'),
@@ -38,5 +40,7 @@ urlpatterns = [
         path('other/', ServiceView.as_view(), name='service-other-page'),
         path('class/', ServiceClassView.as_view(), name='service-class-page'),
         path('travel/', ServiceTravelView.as_view(), name='service-travel-page'),
+        path('edit/<int:pk>', ServiceUpdateView.as_view(), name='work-update-page'),
+        path('delete/<int:pk>', ServiceDeleteView.as_view(), name='work-delete-page'),
     ]))
 ]
